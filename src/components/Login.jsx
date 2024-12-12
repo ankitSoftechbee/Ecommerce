@@ -3,6 +3,8 @@ import { logInAPIConfig } from "../api/apiConfig"
 import { useFormik } from "formik"
 import * as Yup from "yup";
 import axios from "axios";
+import { useState } from "react";
+import Loader from "../lib/Loader";
 
 const validationSchema = Yup.object({
     userName: Yup.string().required("Username is required"),
@@ -12,6 +14,7 @@ const validationSchema = Yup.object({
 });
 
 const Login = () => {
+    const [loading, setLoading] = useState(false)
 
     const handleSubmit = (values) => {
         axios.post(logInAPIConfig.login, JSON.stringify({
@@ -38,6 +41,10 @@ const Login = () => {
         validationSchema: validationSchema,
         onSubmit: handleSubmit
     })
+
+    if(loading){
+        return <Loader/>
+    }
     return <div >
         <div class="animation">
 
@@ -71,7 +78,7 @@ const Login = () => {
                                 <div class="col-xl-6 col-md-6 flex items-center">
                                     <div class="sign-in-your w-full">
                                         <h3>Sign in your account</h3>
-                                        <span class="text-white">Welcome back! Login with your data that you entered<br></br> during registration</span>
+                                        <div class="text-white mb-8">Welcome back! Login with your data that you entered<br></br> during registration</div>
 
                                         <form>
                                             <div class="mb-3">
