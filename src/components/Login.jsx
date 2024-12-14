@@ -83,6 +83,7 @@ const Login = () => {
                                         <form>
                                             <div class="mb-3">
                                                 <label class="mb-1"><strong>Email</strong></label>
+                                                <span class="text-danger">*</span>
                                                 <input
                                                     type="text"
                                                     name="userName"
@@ -97,6 +98,7 @@ const Login = () => {
                                             </div>
                                             <div class="mb-3">
                                                 <label class="mb-1"><strong>Password</strong></label>
+                                                <span class="text-danger">*</span>
                                                 <input
                                                     type="password"
                                                     name="password"

@@ -78,6 +78,7 @@ const Signup = () => {
                                     <form action="https://dolab.dexignzone.com/xhtml/index.html">
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Sponser ID</strong></label>
+                                            <span class="text-danger">*</span>
                                             <input
                                                 type="text"
                                                 name="sponserId"
@@ -93,6 +94,7 @@ const Signup = () => {
                                         </div>
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Username</strong></label>
+                                            <span class="text-danger">*</span>
                                             <input
                                                 type="text"
                                                 name="name"
@@ -108,6 +110,7 @@ const Signup = () => {
                                         </div>
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Email</strong></label>
+                                            <span class="text-danger">*</span>
                                             <input
                                                 type="text"
                                                 name="email"
@@ -122,6 +125,7 @@ const Signup = () => {
                                         </div>
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Password</strong></label>
+                                            <span class="text-danger">*</span>
                                             <input
                                                 type="password"
                                                 name="password"
@@ -138,6 +142,7 @@ const Signup = () => {
                                             <label className="mb-1">
                                                 <strong>Country</strong>
                                             </label>
+                                            <span class="text-danger">*</span>
                                             <input
                                                 type="text"
                                                 name="country"
@@ -155,6 +160,7 @@ const Signup = () => {
                                                 <label className="mb-1">
                                                     <strong>Code</strong>
                                                 </label>
+                                                <span class="text-danger">*</span>
                                                 <input
                                                     type="text"
                                                     name="code"
@@ -171,6 +177,7 @@ const Signup = () => {
                                                 <label className="mb-1">
                                                     <strong>Mobile</strong>
                                                 </label>
+                                                <span class="text-danger">*</span>
                                                 <input
                                                     type="text"
                                                     name="mobile"
@@ -189,6 +196,7 @@ const Signup = () => {
                                             <label className="mb-1">
                                                 <strong>Position</strong>
                                             </label>
+                                            <span class="text-danger">*</span>
                                             <select
                                                 name="position"
                                                 className="form-control"
