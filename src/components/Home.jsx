@@ -1,6 +1,10 @@
+import { useEffect } from 'react';
 import Footer from '../layout/Footer';
 
 const Home = () => {
+    // useEffect(() => {
+    //     window.location.reload()
+    // }, [])
 
     return <>
         <div className="content-body">

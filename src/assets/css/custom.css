@@ -5,3 +5,17 @@
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
+.profile-page-registration{
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 1rem 0.8rem;
+}
+
+@media (max-width:580px){
+  .profile-page-registration{
+    font-size: 12px;
+    margin: 0 0 1rem 0.6rem;
+
+  }  
+}
