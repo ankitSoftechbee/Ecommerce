@@ -6,13 +6,8 @@ import { faDollarSign, faWallet, faCoins, faArrowUp, faArrowDown, faBriefcase } 
 
 const Wallet = () => {
 
-
     const content = [
         { name: 'Income Wallet', icon: faArrowDown, price: '$100' },
-        { name: 'Master Wallet', icon: faWallet, price: '$100' },
-        { name: 'SRPToken Wallet', icon: faCoins, price: '$100' },
-        { name: 'Staking Wallet', icon: faArrowUp, price: '$100' },
-        { name: 'Earning Wallet', icon: faDollarSign, price: '$100' },
         { name: 'Fund Wallet', icon: faBriefcase, price: '$100' },
     ]
 

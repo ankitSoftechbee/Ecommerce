@@ -1,15 +1,36 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Footer from '../../layout/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShare } from '@fortawesome/free-solid-svg-icons';
 import Wallet from './Wallet';
 import Bonus from './Bonus';
 import CoinPrice from './CoinPrice';
+import axios from 'axios';
+import { dashboardAPIConfig } from '../../api/apiConfig';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Home = () => {
+    const [data, setData] = useState('')
     // useEffect(() => {
     //     window.location.reload()
     // }, [])
+
+    useEffect(() => {
+        axios.get(dashboardAPIConfig.dashboard, {
+            headers: {
+                "Content-Type": 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+            }
+        }).then((response) => {
+            if (response.status === 200) {
+                setData(response.data)
+            } else {
+                toast.error('Something went wrong')
+            }
+        }).catch((error) => {
+            toast.error('Something went wrong')
+        })
+    }, [])
 
     return <>
         <div className="content-body">
@@ -25,12 +46,12 @@ const Home = () => {
                     <div className='col-xl-7'>
                         <div>
                             <button type="button" className="btn btn-light">
-                                Referral Link <FontAwesomeIcon icon={faShare} className="ms-2" /> {/* Icon inside the button text */}
+                                Referral Link <FontAwesomeIcon icon={faShare} className="ms-2" />
                             </button>
                         </div>
-                        <Wallet />
-                        <Bonus/>
-                        <CoinPrice/>
+                        <Wallet data={data} />
+                        <Bonus data={data} />
+                        <CoinPrice data={data} />
                     </div>
                     <div className='col-xl-5'>
                         <div className="card">
@@ -43,42 +64,42 @@ const Home = () => {
                                 <div class="card-body pb-2">
                                     <div class="row px-8">
                                         <div className="card">
-                                            <div class="card-body flex justify-between items-center p-3">
-                                                <p className="font-semibold text-xl">
+                                            <div class="card-body flex justify-between items-center px-1 py-3">
+                                                <p className="font-semibold text-white text-xl">
                                                     Sponsor ID
                                                 </p>
-                                                <p className="font-semibold text-xl">
-                                                    XYZ
+                                                <p className="font-semibold text-white text-xl">
+                                                    {data.username || ''}
                                                 </p>
                                             </div>
                                         </div>
                                         <div className="card">
-                                            <div class="card-body flex justify-between items-center p-3">
-                                                <p className="font-semibold text-xl">
+                                            <div class="card-body flex justify-between items-center px-1 py-3">
+                                                <p className="font-semibold text-white text-xl">
                                                     Name
                                                 </p>
-                                                <p className="font-semibold text-xl">
-                                                    John Doe
+                                                <p className="font-semibold text-white text-xl">
+                                                    {data.name || ''}
                                                 </p>
                                             </div>
                                         </div>
                                         <div className="card">
-                                            <div class="card-body flex justify-between items-center p-3">
-                                                <p className="font-semibold text-xl">
-                                                    Mobile
+                                            <div class="card-body flex justify-between items-center px-1 py-3">
+                                                <p className="font-semibold text-white text-xl">
+                                                    Date of Joining
                                                 </p>
-                                                <p className="font-semibold text-xl">
-                                                    8826757573
+                                                <p className="font-semibold text-white text-xl">
+                                                    {data?.dateofjoin?.split('T')[0] || ''}
                                                 </p>
                                             </div>
                                         </div>
                                         <div className="card">
-                                            <div class="card-body flex justify-between items-center p-3">
-                                                <p className="font-semibold text-xl">
+                                            <div class="card-body flex justify-between items-center px-1 py-3">
+                                                <p className="font-semibold text-white text-xl">
                                                     Status
                                                 </p>
-                                                <p className="font-semibold text-xl">
-                                                    Active
+                                                <p className="font-semibold text-green-300 text-xl">
+                                                    {data.status || ''}
                                                 </p>
                                             </div>
                                         </div>
@@ -92,6 +113,18 @@ const Home = () => {
 
                 <Footer />
             </div>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </div>
     </>
 }

@@ -33,7 +33,7 @@ const Login = () => {
         ).then((response) => {
             if (response.status === 200) {
                 sessionStorage.setItem('user', JSON.stringify(response.data.user))
-                localStorage.setItem('access_token', JSON.stringify(response.data.token))
+                localStorage.setItem('access_token', response.data.token)
                 toast.success("Login successful!");
                 setTimeout(() => {
                     navigate('/')

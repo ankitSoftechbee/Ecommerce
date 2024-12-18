@@ -8,10 +8,13 @@ const Bonus = () => {
 
 
     const content = [
-        { name: 'Tier Bonus', price: '$1900' },
-        { name: 'Performance Bonus', price: '$1400' },
-        { name: 'Direct Referral Bonus', price: '$3100' },
-        { name: 'Reward Bonus', price: '$1030' },
+        { name: 'Trading Income', price: '$1900' },
+        { name: 'Passive Income', price: '$1400' },
+        { name: 'Level Income', price: '$3100' },
+        { name: 'Reward Income', price: '$1030' },
+        { name: 'Matching Income', price: '$1030' },
+        { name: 'Royalty Income', price: '$1030' },
+        { name: 'Club Income', price: '$1030' },
     ]
 
     const settings = {

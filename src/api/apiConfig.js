@@ -9,3 +9,7 @@ export const signUpAPIConfig = {
     countryList: key + '/api/Authentication/Country',
     checkSPONSERID: key + '/api/Authentication/ChecKId'
 }
+
+export const dashboardAPIConfig={
+    dashboard: key + '/Dashboard',
+}
