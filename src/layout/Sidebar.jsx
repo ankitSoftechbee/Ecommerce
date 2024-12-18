@@ -110,8 +110,8 @@ const Sidebar = () => {
                 </ul>
 
                 <div className="copyright">
-                    <p className="fs-14"><strong>doLab Personal Banking Admin</strong> © 2022 All Rights Reserved</p>
-                    <p className="fs-14">Made with <span className="heart"></span> by  DexignZone</p>
+                    <p className="fs-14"><strong>GMFX</strong> © 2022 All Rights Reserved</p>
+                    <p className="fs-14">Made with <span className="heart"></span></p>
                 </div>
             </div>
         </div>
