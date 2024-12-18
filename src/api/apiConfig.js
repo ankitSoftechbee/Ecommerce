@@ -5,6 +5,7 @@ export const logInAPIConfig = {
 }
 
 export const signUpAPIConfig = {
-    login: key + '/api/Authentication/signUp',
-    countryList: key + '/api/Authentication/Country'
+    signUp: key + '/api/Authentication/signUp',
+    countryList: key + '/api/Authentication/Country',
+    checkSPONSERID: key + '/api/Authentication/ChecKId'
 }

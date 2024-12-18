@@ -6,24 +6,24 @@ import { faBitcoinSign } from "@fortawesome/free-solid-svg-icons/faBitcoinSign"
 const Sidebar = () => {
 
     return <>
-        <div class="dlabnav">
-            <div class="dlabnav-scroll">
-                <ul class="metismenu" id="menu">
-                    <li><a class="" href="/" aria-expanded="false">
-                        <div class="menu-icon">
+        <div className="dlabnav">
+            <div className="dlabnav-scroll">
+                <ul className="metismenu" id="menu">
+                    <li><a className="" href="/" aria-expanded="false">
+                        <div className="menu-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="IconlyHome"><g id="Home">
                                     <path id="Home_2" d="M9.13478 20.7733V17.7156C9.13478 16.9351 9.77217 16.3023 10.5584 16.3023H13.4326C13.8102 16.3023 14.1723 16.4512 14.4393 16.7163C14.7063 16.9813 14.8563 17.3408 14.8563 17.7156V20.7733C14.8539 21.0978 14.9821 21.4099 15.2124 21.6402C15.4427 21.8705 15.7561 22 16.0829 22H18.0438C18.9596 22.0023 19.8388 21.6428 20.4872 21.0008C21.1356 20.3588 21.5 19.487 21.5 18.5778V9.86686C21.5 9.13246 21.1721 8.43584 20.6046 7.96467L13.934 2.67587C12.7737 1.74856 11.1111 1.7785 9.98539 2.74698L3.46701 7.96467C2.87274 8.42195 2.51755 9.12064 2.5 9.86686V18.5689C2.5 20.4639 4.04738 22 5.95617 22H7.87229C8.55123 22 9.103 21.4562 9.10792 20.7822L9.13478 20.7733Z" fill="#130F26" />
                                 </g></g>
                             </svg>
                         </div>
-                        <span class="nav-text">Dashboard</span>
+                        <span className="nav-text">Dashboard</span>
                     </a>
                     </li>
 
                     {/* MY profile */}
-                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
-                        <div class="menu-icon">
+                    <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
+                        <div className="menu-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M9.34933 14.8577C5.38553 14.8577 2 15.47 2 17.9174C2 20.3666 5.364 21 9.34933 21C13.3131 21 16.6987 20.3877 16.6987 17.9404C16.6987 15.4911 13.3347 14.8577 9.34933 14.8577Z" fill="#B9A8FF" />
                                 <path opacity="0.4" d="M9.34935 12.5248C12.049 12.5248 14.2124 10.4062 14.2124 7.76241C14.2124 5.11865 12.049 3 9.34935 3C6.65072 3 4.48633 5.11865 4.48633 7.76241C4.48633 10.4062 6.65072 12.5248 9.34935 12.5248Z" fill="#763ed0" />
@@ -32,7 +32,7 @@ const Sidebar = () => {
                             </svg>
                         </div>
 
-                        <span class="nav-text">Profile</span>
+                        <span className="nav-text">Profile</span>
                     </a>
                         <ul aria-expanded="false">
                             <li><a href="/myprofile">My Profile</a></li>
@@ -46,11 +46,11 @@ const Sidebar = () => {
                     </li>
 
                     {/* Wallet */}
-                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
-                        <div class="menu-icon">
+                    <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
+                        <div className="menu-icon">
                             <FontAwesomeIcon icon={faBitcoinSign} size="4x" style={{ width: '2rem' }} color="#F7931A" />
                         </div>
-                        <span class="nav-text">Wallet TopUp</span>
+                        <span className="nav-text">Wallet TopUp</span>
                     </a>
                         <ul aria-expanded="false">
                             <li><a href="chart-flot.html">Top Up(Auto)</a></li>
@@ -59,11 +59,11 @@ const Sidebar = () => {
                     </li>
 
                     {/* Income Reports */}
-                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
-                        <div class="menu-icon">
+                    <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
+                        <div className="menu-icon">
                             <FontAwesomeIcon icon={faFileAlt} size="4x" style={{ width: '2rem' }} color="#F7931A" />
                         </div>
-                        <span class="nav-text">Income Reports</span>
+                        <span className="nav-text">Income Reports</span>
                     </a>
                         <ul aria-expanded="false">
                             {/* <li><a href="ui-accordion.html">Accordion</a></li> */}
@@ -72,21 +72,21 @@ const Sidebar = () => {
                     </li>
 
                     {/* Package */}
-                    <li><a href="widget-basic.html" class="" aria-expanded="false">
-                        <div class="menu-icon">
+                    <li><a href="widget-basic.html" className="" aria-expanded="false">
+                        <div className="menu-icon">
                             <FontAwesomeIcon icon={faSuitcase} size="3x" style={{ width: '2rem' }} color="#F7931A" />
                         </div>
-                        <span class="nav-text">Package</span>
+                        <span className="nav-text">Package</span>
                     </a>
                     </li>
 
                     {/* Withdraw */}
-                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
-                        <div class="menu-icon">
+                    <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
+                        <div className="menu-icon">
                             <FontAwesomeIcon icon={faDollarSign} size="3x" style={{ width: '2rem' }} color="#F7931A" />
 
                         </div>
-                        <span class="nav-text">Withdraw</span>
+                        <span className="nav-text">Withdraw</span>
                     </a>
                         <ul aria-expanded="false">
                             <li><a href="form-element.html">Income Withdraw</a></li>
@@ -95,12 +95,12 @@ const Sidebar = () => {
                     </li>
 
                     {/* Community */}
-                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
-                        <div class="menu-icon">
+                    <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
+                        <div className="menu-icon">
                             <FontAwesomeIcon icon={faPeopleGroup} size="3x" style={{ width: '2rem' }} color="#F7931A" />
 
                         </div>
-                        <span class="nav-text">Community</span>
+                        <span className="nav-text">Community</span>
                     </a>
                         <ul aria-expanded="false">
                             <li><a href="table-bootstrap-basic.html">Direct Referral</a></li>
@@ -109,9 +109,9 @@ const Sidebar = () => {
                     </li>
                 </ul>
 
-                <div class="copyright">
-                    <p class="fs-14"><strong>doLab Personal Banking Admin</strong> © 2022 All Rights Reserved</p>
-                    <p class="fs-14">Made with <span class="heart"></span> by  DexignZone</p>
+                <div className="copyright">
+                    <p className="fs-14"><strong>doLab Personal Banking Admin</strong> © 2022 All Rights Reserved</p>
+                    <p className="fs-14">Made with <span className="heart"></span> by  DexignZone</p>
                 </div>
             </div>
         </div>
