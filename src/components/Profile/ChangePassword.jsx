@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Footer from "../../layout/Footer"
 
 const ChangePassword = () => {
     const [showOldPassword, setShowOldPassword] = useState(false)
@@ -56,6 +57,7 @@ const ChangePassword = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     </div>
 }

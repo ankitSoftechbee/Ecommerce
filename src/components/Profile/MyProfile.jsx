@@ -1,3 +1,4 @@
+import Footer from "../../layout/Footer"
 
 const MyProfile = () => {
 
@@ -104,6 +105,7 @@ const MyProfile = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     </div>
 }
