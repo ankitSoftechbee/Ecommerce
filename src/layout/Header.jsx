@@ -197,10 +197,10 @@ const Header = () => {
                             </ul>
                             <a className="nav-link user-profile" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
                                 <div className="header-info2 d-flex align-items-center">
-                                    <img src="src/assets/images/placeholder.jpg" alt="" />
+                                    <img src={data?.profilePic || 'src/assets/images/dummypicture.webp'} alt="" />
                                     <div className="d-flex align-items-center sidebar-info">
                                         <div className="user-info">
-                                            <span className="font-w500 d-block  fs-5 text-white">{data.name}</span>
+                                            <span className="font-w500 d-block  fs-5 text-white">{data?.name || ''}</span>
                                             <small className="text-end font-w400">Admin</small>
                                         </div>
                                         <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">

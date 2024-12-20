@@ -44,6 +44,7 @@ function Layout() {
       <Header />
       <Sidebar />
       <Outlet /> {/* Content will be injected here based on the current route */}
+      
     </div>
   );
 }
