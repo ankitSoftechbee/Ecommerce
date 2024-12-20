@@ -13,6 +13,10 @@ import Support from '../components/Profile/Support';
 import CryptoWalletChange from '../components/Profile/CryptoWalletChange';
 import ChangeProfilePic from '../components/Profile/ChangeProfilePic';
 import SupportResponse from '../components/Profile/SupportResponse';
+import TopUpAuto from '../components/WalletTopUp/ToUpAuto';
+import TopUpAutoHistory from '../components/WalletTopUp/TopUpAutoHistory';
+import IncomeWithdraw from '../components/Withdraw/IncomeWithdraw';
+import WithdrawHistory from '../components/Withdraw/WithdrawHistory';
 
 const Routing = () => {
   return (
@@ -41,6 +45,10 @@ const Routing = () => {
           <Route path="crypto-wallet-change" element={<CryptoWalletChange />} />
           <Route path="support-response" element={<SupportResponse />} />
           <Route path="change-profile-pic" element={<ChangeProfilePic />} />
+          <Route path='top-up-auto' element={<TopUpAuto />} />
+          <Route path='top-up-auto-history' element={<TopUpAutoHistory />} />
+          <Route path='income-withdraw' element={<IncomeWithdraw />} />
+          <Route path='withdraw-history' element={<WithdrawHistory />} />
         </Route>
       </Routes>
     </Router>

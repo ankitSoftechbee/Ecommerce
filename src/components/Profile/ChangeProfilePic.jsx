@@ -1,6 +1,7 @@
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import Footer from "../../layout/Footer";
 // import { FaUpload } from "react-icons/fa"; // Importing upload icon from react-icons
 
 const ChangeProfilePic = () => {
@@ -65,6 +66,7 @@ const ChangeProfilePic = () => {
                         </div>
                     </div>
                 </div>
+                <Footer/>
             </div>
         </div>
     );

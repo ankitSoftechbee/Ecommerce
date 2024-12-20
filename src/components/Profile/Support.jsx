@@ -1,5 +1,6 @@
 import ReactQuill from "react-quill"
 import 'react-quill/dist/quill.snow.css';
+import Footer from "../../layout/Footer";
 
 const Support = () => {
 
@@ -34,6 +35,7 @@ const Support = () => {
                         <button type="button" class="btn btn-info">Submit</button>
                 </div>
             </div>
+            <Footer/>
         </div>
     </div>
 }

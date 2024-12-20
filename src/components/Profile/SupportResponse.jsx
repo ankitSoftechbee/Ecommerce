@@ -1,3 +1,5 @@
+import Footer from "../../layout/Footer"
+
 const SupportResponse = () => {
 
     return <div className="content-body">
@@ -52,6 +54,7 @@ const SupportResponse = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     </div>
 }

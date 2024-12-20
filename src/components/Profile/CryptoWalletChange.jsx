@@ -1,5 +1,6 @@
 import { useState } from "react";
 import OTP from "./OTP";
+import Footer from "../../layout/Footer";
 
 const CryptoWalletChange = () => {
     const [isOtpModalOpen, setIsOtpModalOpen] = useState(false);
@@ -53,6 +54,7 @@ const CryptoWalletChange = () => {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
             {isOtpModalOpen && <OTP onClose={handleCloseOtpModal} />}
 

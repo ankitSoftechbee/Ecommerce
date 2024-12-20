@@ -53,8 +53,8 @@ const Sidebar = () => {
                         <span className="nav-text">Wallet TopUp</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="chart-flot.html">Top Up(Auto)</a></li>
-                            <li><a href="chart-morris.html">Top Up(Auto) History</a></li>
+                            <li><a href="/top-up-auto">Top Up(Auto)</a></li>
+                            <li><a href="/top-up-auto-history">Top Up(Auto) History</a></li>
                         </ul>
                     </li>
 
@@ -89,8 +89,8 @@ const Sidebar = () => {
                         <span className="nav-text">Withdraw</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="form-element.html">Income Withdraw</a></li>
-                            <li><a href="form-wizard.html">Withdraw History</a></li>
+                            <li><a href="/income-withdraw">Income Withdraw</a></li>
+                            <li><a href="withdraw-history">Withdraw History</a></li>
                         </ul>
                     </li>
 

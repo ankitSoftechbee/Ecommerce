@@ -1,5 +1,26 @@
+import { useEffect, useState } from "react"
+import Footer from "../../layout/Footer"
+import axios from "axios"
+import { profileAPIConfig } from "../../api/apiConfig"
+import { toast, ToastContainer } from "react-toastify"
 
 const MyProfile = () => {
+    const [data, setData] = useState('')
+
+    useEffect(() => {
+        axios.get(profileAPIConfig.myProfile, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        }).then((response) => {
+            if (response.status === 200) {
+                console.log(response.data)
+            }
+        }).catch((error) => {
+            toast.error('Something went wrong')
+        })
+    }, [])
 
     return <div className="content-body">
         <div class="container-fluid">
@@ -90,7 +111,7 @@ const MyProfile = () => {
                                     autoComplete="off"
                                 />
                             </div>
-                                    <div class="mb-3">
+                            <div class="mb-3">
                                 <label class="mb-1"><strong>Address</strong></label>
                                 <input
                                     type="text"
@@ -104,7 +125,20 @@ const MyProfile = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
+        <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+        />
     </div>
 }
 

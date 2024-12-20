@@ -58,7 +58,7 @@ const Login = () => {
     if (loading) {
         return <Loader />
     }
-    return <div style={{ backgroundImage: "url(src/assets/images/bg1.png)", backgroundPosition: "center", backgroundSize: "cover" }}>
+    return <div style={{ backgroundImage: "url(src/assets/images/bg1.png)", backgroundPosition: "center", backgroundSize: "cover", minHeight: '100vh' }}>
         <div className="container h-100">
             <div className="row h-100 align-items-center justify-content-center">
                 <div className="col-xl-6 col-lg-6">

@@ -10,6 +10,13 @@ export const signUpAPIConfig = {
     checkSPONSERID: key + '/api/Authentication/ChecKId'
 }
 
-export const dashboardAPIConfig={
+export const dashboardAPIConfig = {
     dashboard: key + '/Dashboard',
+    currentNews: key + '/News'
 }
+
+export const profileAPIConfig = {
+    myProfile: key + "/GetProfile",
+    updateProfile: key + "/api/User/Profile",
+}
+

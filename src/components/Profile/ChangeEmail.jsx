@@ -1,6 +1,7 @@
 // ChangeEmail.js
 import { useState } from "react";
 import OTP from "./OTP";
+import Footer from "../../layout/Footer";
 
 const ChangeEmail = () => {
   const [isOtpModalOpen, setIsOtpModalOpen] = useState(false);
@@ -76,6 +77,7 @@ const ChangeEmail = () => {
             </div>
           </div>
         </div>
+        <Footer/>
       </div>
 
       {/* Render OTP Modal */}
