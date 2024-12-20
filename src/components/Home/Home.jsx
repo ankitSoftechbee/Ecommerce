@@ -4,18 +4,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShare } from '@fortawesome/free-solid-svg-icons';
 import Wallet from './Wallet';
 import Bonus from './Bonus';
-import CoinPrice from './CoinPrice';
+import MyTeam from './MyTeam';
 import axios from 'axios';
 import { dashboardAPIConfig } from '../../api/apiConfig';
 import { toast, ToastContainer } from 'react-toastify';
+import Reward from './Reward';
+import Withdraw from './Withdraw';
+import Loader from "../../lib/Loader"
 
 const Home = () => {
     const [data, setData] = useState('')
-    // useEffect(() => {
-    //     window.location.reload()
-    // }, [])
+    const [loading, setLoading] = useState(false)
+    const [news, setNews] = useState('')
+
 
     useEffect(() => {
+        setLoading(true)
         axios.get(dashboardAPIConfig.dashboard, {
             headers: {
                 "Content-Type": 'application/json',
@@ -27,10 +31,38 @@ const Home = () => {
             } else {
                 toast.error('Something went wrong')
             }
+            setLoading(false)
         }).catch((error) => {
+            setLoading(false)
             toast.error('Something went wrong')
         })
     }, [])
+
+    useEffect(() => {
+        setLoading(true)
+        axios.get(dashboardAPIConfig.currentNews, {
+            headers: {
+                "Content-Type": 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+            }
+        }).then((response) => {
+            if (response.status === 200) {
+                // console.log(response)
+                setNews(response.data)
+            } else {
+                toast.error('Something went wrong')
+            }
+            setLoading(false)
+        }).catch((error) => {
+            setLoading(false)
+            toast.error('Something went wrong')
+        })
+    }, [])
+
+
+    if (loading) {
+        return <Loader />
+    }
 
     return <>
         <div className="content-body">
@@ -38,8 +70,8 @@ const Home = () => {
             <div className="container-fluid">
                 <div className="relative overflow-hidden w-full mb-4">
                     <div className="flex items-center justify-center animate-scroll">
-                        <p className="text-white-900 font-bold text-2xl mr-4">Good News :-</p>
-                        <p className="text-xl text-yellow-600">Congratulations on your new project.</p>
+                        <p className="text-white-900 font-bold text-2xl mr-4">{news.tittle} :-</p>
+                        <p className="text-xl text-yellow-600">{news.news}</p>
                     </div>
                 </div>
                 <div className='row'>
@@ -51,7 +83,8 @@ const Home = () => {
                         </div>
                         <Wallet data={data} />
                         <Bonus data={data} />
-                        <CoinPrice data={data} />
+                        <MyTeam data={data} />
+                        <Withdraw data={data} />
                     </div>
                     <div className='col-xl-5'>
                         <div className="card">
@@ -66,7 +99,7 @@ const Home = () => {
                                         <div className="card">
                                             <div class="card-body flex justify-between items-center px-1 py-3">
                                                 <p className="font-semibold text-white text-xl">
-                                                    Sponsor ID
+                                                    User Name
                                                 </p>
                                                 <p className="font-semibold text-white text-xl">
                                                     {data.username || ''}
@@ -96,6 +129,26 @@ const Home = () => {
                                         <div className="card">
                                             <div class="card-body flex justify-between items-center px-1 py-3">
                                                 <p className="font-semibold text-white text-xl">
+                                                    Package
+                                                </p>
+                                                <p className="font-semibold text-green-300 text-xl">
+                                                    {data?.packtype || ''}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="card">
+                                            <div class="card-body flex justify-between items-center px-1 py-3">
+                                                <p className="font-semibold text-white text-xl">
+                                                    Rank
+                                                </p>
+                                                <p className="font-semibold text-yellow-500 text-xl">
+                                                    {data?.currentReward || ''}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="card">
+                                            <div class="card-body flex justify-between items-center px-1 py-3">
+                                                <p className="font-semibold text-white text-xl">
                                                     Status
                                                 </p>
                                                 <p className="font-semibold text-green-300 text-xl">
@@ -107,6 +160,8 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
+                        <Reward data={data} />
+
                     </div>
                 </div>
 
