@@ -8,23 +8,21 @@ import { toast, ToastContainer } from "react-toastify";
 import Loader from "../../lib/Loader";
 
 const validationSchema = Yup.object({
-    oldPassword: Yup.string().required("Old Password is required"),
-    newPassword: Yup.string()
-        .required("New Password is required"),
-    confirmPassword: Yup.string()
-        .oneOf([Yup.ref("newPassword"), null], "Passwords must match")
-        .required("Confirm Password is required"),
+    oldTransactionPassword: Yup.string().required("Old Transaction Password is required"),
+    newTransactionPassword: Yup.string()
+        .required("New Transaction Password is required"),
+    confirmTransactionPassword: Yup.string()
+        .oneOf([Yup.ref("newTransactionPassword"), null], "Passwords must match")
+        .required("Confirm Transaction Password is required"),
 });
 
-const ChangePassword = () => {
+const ChangeTransactionPassword = () => {
     const [showOldPassword, setShowOldPassword] = useState(false);
     const [showNewPassword, setShowNewPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [loading, setLoading] = useState(false)
 
     const handleSubmit = (values) => {
-        setLoading(true)
-        axios.post(`${profileAPIConfig.changePassword}?OldPassword=${values.oldPassword}&NewPassword=${values.newPassword}`, {}, {
+        axios.post(`${profileAPIConfig.updateTransactionPassword}?OldPassword=${values.oldTransactionPassword}&NewPassword=${values.newTransactionPassword}`, {}, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: "Bearer " + localStorage.getItem("access_token"),
@@ -36,26 +34,20 @@ const ChangePassword = () => {
             } else {
                 toast.error('Password Change Failed')
             }
-            setLoading(false)
         }).catch((error) => {
-            setLoading(false)
             toast.error('Something went wrong')
         })
     };
 
     const formik = useFormik({
         initialValues: {
-            oldPassword: "",
-            newPassword: "",
-            confirmPassword: "",
+            oldTransactionPassword: "",
+            newTransactionPassword: "",
+            confirmTransactionPassword: "",
         },
         validationSchema,
         onSubmit: handleSubmit,
     });
-
-    if (loading) {
-        return <Loader />
-    }
 
     return (
         <div className="content-body">
@@ -76,16 +68,16 @@ const ChangePassword = () => {
                                     {/* Old Password */}
                                     <div className="mb-3">
                                         <label className="text-label form-label" htmlFor="oldPassword">
-                                            Old Password <span className="text-danger">*</span>
+                                            Old Transaction Password <span className="text-danger">*</span>
                                         </label>
                                         <div className="input-group transparent-append">
                                             <input
                                                 type={showOldPassword ? "text" : "password"}
                                                 className="form-control"
-                                                id="oldPassword"
+                                                id="oldTransactionPassword"
                                                 placeholder="Enter old password"
-                                                name="oldPassword"
-                                                value={formik.values.oldPassword}
+                                                name="oldTransactionPassword"
+                                                value={formik.values.oldTransactionPassword}
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
                                             />
@@ -100,8 +92,8 @@ const ChangePassword = () => {
                                                 )}
                                             </span>
                                         </div>
-                                        {formik.touched.oldPassword && formik.errors.oldPassword && (
-                                            <div className="text-danger">{formik.errors.oldPassword}</div>
+                                        {formik.touched.oldTransactionPassword && formik.errors.oldTransactionPassword && (
+                                            <div className="text-danger">{formik.errors.oldTransactionPassword}</div>
                                         )}
                                     </div>
 
@@ -114,10 +106,10 @@ const ChangePassword = () => {
                                             <input
                                                 type={showNewPassword ? "text" : "password"}
                                                 className="form-control"
-                                                id="newPassword"
+                                                id="newTransactionPassword"
                                                 placeholder="Enter new password"
-                                                name="newPassword"
-                                                value={formik.values.newPassword}
+                                                name="newTransactionPassword"
+                                                value={formik.values.newTransactionPassword}
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
                                             />
@@ -132,8 +124,8 @@ const ChangePassword = () => {
                                                 )}
                                             </span>
                                         </div>
-                                        {formik.touched.newPassword && formik.errors.newPassword && (
-                                            <div className="text-danger">{formik.errors.newPassword}</div>
+                                        {formik.touched.newTransactionPassword && formik.errors.newTransactionPassword && (
+                                            <div className="text-danger">{formik.errors.newTransactionPassword}</div>
                                         )}
                                     </div>
 
@@ -146,10 +138,10 @@ const ChangePassword = () => {
                                             <input
                                                 type={showConfirmPassword ? "text" : "password"}
                                                 className="form-control"
-                                                id="confirmPassword"
+                                                id="confirmTransactionPassword"
                                                 placeholder="Confirm new password"
-                                                name="confirmPassword"
-                                                value={formik.values.confirmPassword}
+                                                name="confirmTransactionPassword"
+                                                value={formik.values.confirmTransactionPassword}
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
                                             />
@@ -164,8 +156,8 @@ const ChangePassword = () => {
                                                 )}
                                             </span>
                                         </div>
-                                        {formik.touched.confirmPassword && formik.errors.confirmPassword && (
-                                            <div className="text-danger">{formik.errors.confirmPassword}</div>
+                                        {formik.touched.confirmTransactionPassword && formik.errors.confirmTransactionPassword && (
+                                            <div className="text-danger">{formik.errors.confirmTransactionPassword}</div>
                                         )}
                                     </div>
                                 </div>
@@ -194,4 +186,4 @@ const ChangePassword = () => {
     );
 };
 
-export default ChangePassword;
+export default ChangeTransactionPassword;

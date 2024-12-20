@@ -7,7 +7,8 @@ export const logInAPIConfig = {
 export const signUpAPIConfig = {
     signUp: key + '/api/Authentication/signUp',
     countryList: key + '/api/Authentication/Country',
-    checkSPONSERID: key + '/api/Authentication/ChecKId'
+    checkSPONSERID: key + '/api/Authentication/ChecKId',
+    sendEmail: key + 'api/Authentication/MSGEMAIL'
 }
 
 export const dashboardAPIConfig = {
@@ -18,5 +19,16 @@ export const dashboardAPIConfig = {
 export const profileAPIConfig = {
     myProfile: key + "/GetProfile",
     updateProfile: key + "/api/User/Profile",
+    changePassword: key + '/api/User/ChangePassword',
+    support: key + '/api/User/SupportTicket',
+    supportResponseList: key + '/SupportResponse',
+    updateProfilePic: key + '/api/User/UploadProfileImg',
+    getWalletAddress: key + '/GetWalletAddress',
+    updateWallet: key + '/api/User/CryptoWallet',
+    updateTransactionPassword:key + '/api/User/ChangeTransactionPass'
+}
+
+export const incomeAPIConfig={
+    incomeList:key + '/IncomeReport'
 }
 

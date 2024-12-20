@@ -39,7 +39,7 @@ const Sidebar = () => {
                             <li><a href="/change-password">Change Password</a></li>
                             <li><a href="/change-profile-pic">Change Profile Pic</a></li>
                             <li><a href="/crypto-wallet-change">Crypto Wallet Change</a></li>
-                            <li><a href="/change-email">Change Email</a></li>
+                            <li><a href="/change-transaction-password">Change Transaction Password</a></li>
                             <li><a href="/support">Support</a></li>
                             <li><a href="/support-response">Support Response</a></li>
                         </ul>
@@ -66,7 +66,13 @@ const Sidebar = () => {
                         <span className="nav-text">Income Reports</span>
                     </a>
                         <ul aria-expanded="false">
-                            {/* <li><a href="ui-accordion.html">Accordion</a></li> */}
+                            <li><a href="/income/report/trading-profit">Trading Profit</a></li>
+                            <li><a href="/income/report/trading-profit-income">Trading Profit Income</a></li>
+                            <li><a href="/income/report/direct-income">Direct Income</a></li>
+                            <li><a href="/income/report/level-income">Level Income</a></li>
+                            <li><a href="/income/report/reward-income">Reward Income</a></li>
+                            <li><a href="/income/report/royalty-income">Royalty Income</a></li>
+                            <li><a href="/income/report/club-income">Club Income</a></li>
 
                         </ul>
                     </li>

@@ -8,7 +8,7 @@ import Layout from '../layout/layout';
 import Signup from '../components/Signup';
 import MyProfile from '../components/Profile/MyProfile';
 import ChangePassword from '../components/Profile/ChangePassword';
-import ChangeEmail from '../components/Profile/ChangeEmail';
+import ChangeEmail from '../components/Profile/ChangeTransactionPassword';
 import Support from '../components/Profile/Support';
 import CryptoWalletChange from '../components/Profile/CryptoWalletChange';
 import ChangeProfilePic from '../components/Profile/ChangeProfilePic';
@@ -17,6 +17,8 @@ import TopUpAuto from '../components/WalletTopUp/ToUpAuto';
 import TopUpAutoHistory from '../components/WalletTopUp/TopUpAutoHistory';
 import IncomeWithdraw from '../components/Withdraw/IncomeWithdraw';
 import WithdrawHistory from '../components/Withdraw/WithdrawHistory';
+import ChangeTransactionPassword from '../components/Profile/ChangeTransactionPassword';
+import Income from '../components/Income/Income';
 
 const Routing = () => {
   return (
@@ -40,7 +42,7 @@ const Routing = () => {
           <Route path="contact" element={<Contact />} />
           <Route path="myprofile" element={<MyProfile />} />
           <Route path="change-password" element={<ChangePassword />} />
-          <Route path="change-email" element={<ChangeEmail />} />
+          <Route path="change-transaction-password" element={<ChangeTransactionPassword />} />
           <Route path="support" element={<Support />} />
           <Route path="crypto-wallet-change" element={<CryptoWalletChange />} />
           <Route path="support-response" element={<SupportResponse />} />
@@ -49,6 +51,16 @@ const Routing = () => {
           <Route path='top-up-auto-history' element={<TopUpAutoHistory />} />
           <Route path='income-withdraw' element={<IncomeWithdraw />} />
           <Route path='withdraw-history' element={<WithdrawHistory />} />
+
+          <Route path='income/report/trading-profit' element={<Income />} />
+          <Route path='income/report/trading-profit-income' element={<Income />} />
+          <Route path='income/report/direct-income' element={<Income />} />
+          <Route path='income/report/level-income' element={<Income />} />
+          <Route path='income/report/reward-income' element={<Income />} />
+          <Route path='income/report/royalty-income' element={<Income />} />
+          <Route path='income/report/club-income' element={<Income />} />
+
+
         </Route>
       </Routes>
     </Router>

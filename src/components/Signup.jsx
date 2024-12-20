@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useEffect, useState, useCallback } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import Confirmation from "./Confirmation";
 
 const validationSchema = Yup.object({
     name: Yup.string().required("Name is required"),
@@ -22,7 +23,10 @@ const Signup = () => {
     const navigate = useNavigate()
     const [countryList, setCountryList] = useState('');
     const [isSponser, setIsSponser] = useState(false);
-    const [debounceTimer, setDebounceTimer] = useState(null); // State for managing debounce
+    const [debounceTimer, setDebounceTimer] = useState(null);
+    const [sponsorName, setSponsorName] = useState('')
+    const [open, setOpen] = useState(true)
+    const [userDetails, setUserDetails] = useState('')
 
     useEffect(() => {
         axios.get(signUpAPIConfig.countryList, {}, {
@@ -30,7 +34,6 @@ const Signup = () => {
                 "Content-Type": 'application/json'
             }
         }).then((response) => {
-            console.log(response)
             if (response.status === 200) {
                 setCountryList(response.data.data);
             }
@@ -49,6 +52,7 @@ const Signup = () => {
         }).then((response) => {
             if (response.data.name !== null) {
                 setIsSponser(true);
+                setSponsorName(response.data.name)
             } else {
                 setIsSponser(false);
                 toast.error("Invalid Sponser!");
@@ -75,8 +79,6 @@ const Signup = () => {
     };
 
     const handleSubmit = (values) => {
-        console.log(values);
-        console.log(formik.isValid, isSponser)
         if (formik.isValid) {
             if (isSponser) {
                 axios.post(signUpAPIConfig.signUp, {
@@ -93,12 +95,11 @@ const Signup = () => {
                         'Content-Type': 'application/json'
                     }
                 }).then((response) => {
-                    console.log(response);
                     if (response.status === 200) {
+                        setUserDetails(response.data)
                         toast.success("Signup successful!");
-                        setTimeout(() => {
-                            navigate('/login')
-                        }, 2000)
+                        setOpen(true)
+                        hanldeSendEmail(response.data.newUser)
                     }
                 }).catch((error) => {
                     toast.error("Error during signup!");
@@ -111,6 +112,17 @@ const Signup = () => {
             toast.error('Please fill all the fields');
         }
     };
+
+    const hanldeSendEmail = (username) => {
+        axios.post(`${signUpAPIConfig.sendEmail}?userName=${username}`, {}, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then((response) => {
+
+        }).catch((error) => console.log(error))
+    }
+
 
     const formik = useFormik({
         initialValues: {
@@ -126,7 +138,14 @@ const Signup = () => {
         validationSchema: validationSchema,
         onSubmit: handleSubmit
     });
-    console.log(formik)
+
+    const handleClose = () => {
+        setOpen(false)
+        setTimeout(() => {
+            navigate('/login')
+        }, 2000)
+
+    }
     return <div style={{ backgroundImage: "url(src/assets/images/bg1.png)", backgroundPosition: "center", backgroundSize: "cover", minHeight: '100vh' }}>
         <div className="container h-100">
             <div className="row h-100 align-items-center justify-content-center">
@@ -140,7 +159,7 @@ const Signup = () => {
                                         <h3 className="text-center">Sign in your account</h3>
                                         <div className="text-white text-center mb-8">Welcome back !!! To GMFX</div>
                                         <div className="mb-3">
-                                            <label className="mb-1"><strong>Sponser ID</strong></label>
+                                            <label className="mb-1"><strong>Sponser ID &nbsp; &nbsp;  <span className="text-red-300">({sponsorName})</span></strong></label>
                                             <span className="text-danger">*</span>
                                             <input
                                                 type="text"
@@ -220,8 +239,8 @@ const Signup = () => {
                                                 {countryList && countryList.map((country) => <option style={{ backgroundColor: '#5e3ed0' }}>{country.country}</option>)}
 
                                             </select>
-                                            {formik.touched.position && formik.errors.position ? (
-                                                <p className="text-danger">{formik.errors.position}</p>
+                                            {formik.touched.country && formik.errors.country ? (
+                                                <p className="text-danger">{formik.errors.country}</p>
                                             ) : null}
                                         </div>
                                         <div className="flex gap-4">
@@ -310,6 +329,7 @@ const Signup = () => {
                 theme="light"
             />
         </div>
+        {open && <Confirmation handleClose={handleClose} userDetails={userDetails} />}
     </div>
 }
 export default Signup
