@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import Footer from "../../layout/Footer";
 import axios from "axios";
-import { communityAPIConfig, packageAPIConfig, withdrawAPIConfig } from "../../api/apiConfig";
+import { communityAPIConfig, packageAPIConfig } from "../../api/apiConfig";
 import { toast } from "react-toastify";
 import { TablePagination } from "@mui/material";
 
-const WithdrawHistory = () => {
+const Direct = () => {
     const [data, setData] = useState('');
     const [limit, setLimit] = useState(10);
     const [pageNo, setPageNo] = useState(0);
@@ -14,7 +14,7 @@ const WithdrawHistory = () => {
 
     useEffect(() => {
         axios
-            .get(withdrawAPIConfig.withdrawHistory, {
+            .get(communityAPIConfig.directList, {
                 params: {
                     PageNumber: pageNo + 1,
                     PageSize: limit,
@@ -51,7 +51,7 @@ const WithdrawHistory = () => {
                 <div className="row page-titles">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item">
-                            <a href="javascript:void(0)">Withdraw / History</a>
+                            <a href="javascript:void(0)">Community / Direct</a>
                         </li>
                     </ol>
                 </div>
@@ -95,13 +95,13 @@ const WithdrawHistory = () => {
                                         <thead>
                                             <tr>
                                                 <th><strong>Sno</strong></th>
-                                                <th><strong>Date Of Request</strong></th>
-                                                <th><strong>Date Of Action</strong></th>
-                                                <th><strong>Payment Mode</strong></th>
-                                                <th><strong>Wallet Address</strong></th>
-                                                <th><strong>Amuont </strong></th>
-                                                <th><strong>Admin Charge (5%)</strong></th>
-                                                <th><strong>Payout</strong></th>
+                                                <th><strong>Username</strong></th>
+                                                <th><strong>Name</strong></th>
+                                                <th><strong>Mobile</strong></th>
+                                                <th><strong>Date of Joining</strong></th>
+                                                <th><strong>Ref ID</strong></th>
+                                                <th><strong>Ref Name</strong></th>
+                                                <th><strong>Side</strong></th>
                                                 <th><strong>Status</strong></th>
                                             </tr>
                                         </thead>
@@ -110,14 +110,14 @@ const WithdrawHistory = () => {
                                                 data.data.map((item, index) => (
                                                     <tr key={index}>
                                                         <td><strong>{index + 1 + pageNo * limit}</strong></td>
-                                                        <td>{item?.dateOFRequest.split('T')[0] || ''}</td>
-                                                        <td>{item?.dateOfAction.split('T')[0] || ''}</td>
-                                                        <td>{item?.paymenMode || ''}</td>
-                                                        <td>{item?.walletAddress || ''}</td>
-                                                        <td>{item?.amount || ''}</td>
-                                                        <td className="text-center">{item?.adminCharge || ''}</td>
-                                                        <td>{item?.payout || ''}</td>
-                                                        <td style={{color:item.status==='Process'?'yellow':item.status==='Approved'?'#32de84':'red'}}>{item?.status || ""}</td>
+                                                        <td>{item?.username || ''}</td>
+                                                        <td>{item?.name || ''}</td>
+                                                        <td>{item?.mobile || ''}</td>
+                                                        <td>{item?.dateofjoin.split('T')[0] || ''}</td>
+                                                        <td>{item?.reffid || ''}</td>
+                                                        <td>{item?.reffname || ''}</td>
+                                                        <td>{item?.onside || ''}</td>
+                                                        <td className="text-green-400">{item?.status || ""}</td>
                                                     </tr>
                                                 ))
                                             ) : (
@@ -162,4 +162,4 @@ const WithdrawHistory = () => {
     );
 };
 
-export default WithdrawHistory;
+export default Direct;

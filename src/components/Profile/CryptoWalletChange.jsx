@@ -48,7 +48,7 @@ const CryptoWalletChange = () => {
             }
         }).then((response) => {
             if (response.status === 200) {
-
+                toast.success('Updated successfully')
             } else {
                 toast.error('Invalid password')
             }

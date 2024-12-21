@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import Footer from "../../layout/Footer";
 import axios from "axios";
-import { communityAPIConfig, packageAPIConfig, withdrawAPIConfig } from "../../api/apiConfig";
+import { communityAPIConfig, packageAPIConfig, walletAPIConfig, withdrawAPIConfig } from "../../api/apiConfig";
 import { toast } from "react-toastify";
 import { TablePagination } from "@mui/material";
 
-const WithdrawHistory = () => {
+const TopUpManualHistory = () => {
     const [data, setData] = useState('');
     const [limit, setLimit] = useState(10);
     const [pageNo, setPageNo] = useState(0);
@@ -14,7 +14,7 @@ const WithdrawHistory = () => {
 
     useEffect(() => {
         axios
-            .get(withdrawAPIConfig.withdrawHistory, {
+            .get(walletAPIConfig.topUpManualHistory, {
                 params: {
                     PageNumber: pageNo + 1,
                     PageSize: limit,
@@ -51,7 +51,7 @@ const WithdrawHistory = () => {
                 <div className="row page-titles">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item">
-                            <a href="javascript:void(0)">Withdraw / History</a>
+                            <a href="javascript:void(0)">Top Up Manual History</a>
                         </li>
                     </ol>
                 </div>
@@ -97,12 +97,11 @@ const WithdrawHistory = () => {
                                                 <th><strong>Sno</strong></th>
                                                 <th><strong>Date Of Request</strong></th>
                                                 <th><strong>Date Of Action</strong></th>
+                                                <th><strong>Transaction No</strong></th>
                                                 <th><strong>Payment Mode</strong></th>
-                                                <th><strong>Wallet Address</strong></th>
-                                                <th><strong>Amuont </strong></th>
-                                                <th><strong>Admin Charge (5%)</strong></th>
-                                                <th><strong>Payout</strong></th>
-                                                <th><strong>Status</strong></th>
+                                                <th><strong>Amount</strong></th>
+                                                <th><strong>Admin Remark</strong></th>
+                                                <th><strong>Receipt</strong></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -110,14 +109,13 @@ const WithdrawHistory = () => {
                                                 data.data.map((item, index) => (
                                                     <tr key={index}>
                                                         <td><strong>{index + 1 + pageNo * limit}</strong></td>
-                                                        <td>{item?.dateOFRequest.split('T')[0] || ''}</td>
-                                                        <td>{item?.dateOfAction.split('T')[0] || ''}</td>
-                                                        <td>{item?.paymenMode || ''}</td>
-                                                        <td>{item?.walletAddress || ''}</td>
-                                                        <td>{item?.amount || ''}</td>
-                                                        <td className="text-center">{item?.adminCharge || ''}</td>
-                                                        <td>{item?.payout || ''}</td>
-                                                        <td style={{color:item.status==='Process'?'yellow':item.status==='Approved'?'#32de84':'red'}}>{item?.status || ""}</td>
+                                                        <td>{item.dateOfRequest ? item.dateOfRequest.split('T')[0] : ''}</td>
+                                                        <td>{item.dateofAction ? item.dateofAction.split('T')[0] : ''}</td>
+                                                        <td>{item.hashCode ?? ''}</td>
+                                                        <td>{item.paymentMode ?? ''}</td>
+                                                        <td>{item.amount || ''}</td>
+                                                        <td>{item.adminRemark || ''}</td>
+                                                        <td>{item.receipt || ''}</td>
                                                     </tr>
                                                 ))
                                             ) : (
@@ -162,4 +160,4 @@ const WithdrawHistory = () => {
     );
 };
 
-export default WithdrawHistory;
+export default TopUpManualHistory;

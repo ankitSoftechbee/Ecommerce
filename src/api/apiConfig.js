@@ -25,10 +25,35 @@ export const profileAPIConfig = {
     updateProfilePic: key + '/api/User/UploadProfileImg',
     getWalletAddress: key + '/GetWalletAddress',
     updateWallet: key + '/api/User/CryptoWallet',
-    updateTransactionPassword:key + '/api/User/ChangeTransactionPass'
+    updateTransactionPassword: key + '/api/User/ChangeTransactionPass'
 }
 
-export const incomeAPIConfig={
-    incomeList:key + '/IncomeReport'
+export const incomeAPIConfig = {
+    incomeList: key + '/IncomeReport'
+}
+export const packageAPIConfig = {
+    invest: key + '/api/User/InvestmentPackage',
+    investHistory: key + '/InvestmentHistory',
+    checkWalletBalance: key + '/WalletBalance'
+}
+
+export const communityAPIConfig = {
+    directList: key + '/DirectTeam',
+    levelList: key + '/MyTeam'
+}
+
+export const withdrawAPIConfig = {
+    getPaymentMode: key + '/GetPaymentMode',
+    incomeWithdraw:key + '/api/User/Withdraw',
+    withdrawHistory:key + '/WithdrawReport',
+    accountSummary:key+'/AccountSummary'
+}
+
+export const walletAPIConfig={
+    topUpAutoHistory:key+'/AutoDepositeHistory',
+    topUpManualHistory:key+ '/ManualDepositeHistory',
+    fundSummary:key+ '/FundSummary',
+    paymentMode:key + '/GetDepositetAddress',
+    topUpManual:key+'/api/User/DepositeWallet'
 }
 

@@ -19,6 +19,14 @@ import IncomeWithdraw from '../components/Withdraw/IncomeWithdraw';
 import WithdrawHistory from '../components/Withdraw/WithdrawHistory';
 import ChangeTransactionPassword from '../components/Profile/ChangeTransactionPassword';
 import Income from '../components/Income/Income';
+import StakingPackage from '../components/Package/StakingPackage';
+import PackageHistory from '../components/Package/PackageHistory';
+import Direct from '../components/Community/Direct';
+import Level from '../components/Community/Level';
+import AccountSummary from '../components/Withdraw/AccountSummary';
+import TopUpManualHistory from '../components/WalletTopUp/TopUpManualHistory';
+import FundSummary from '../components/WalletTopUp/FundSummary';
+import TopUpManual from '../components/WalletTopUp/TopUpManual';
 
 const Routing = () => {
   return (
@@ -49,6 +57,11 @@ const Routing = () => {
           <Route path="change-profile-pic" element={<ChangeProfilePic />} />
           <Route path='top-up-auto' element={<TopUpAuto />} />
           <Route path='top-up-auto-history' element={<TopUpAutoHistory />} />
+          <Route path='top-up-manual' element={<TopUpManual />} />
+
+
+          <Route path='top-up-manual-history' element={<TopUpManualHistory />} />
+          <Route path='fund-summary' element={<FundSummary />} /> 
           <Route path='income-withdraw' element={<IncomeWithdraw />} />
           <Route path='withdraw-history' element={<WithdrawHistory />} />
 
@@ -59,6 +72,13 @@ const Routing = () => {
           <Route path='income/report/reward-income' element={<Income />} />
           <Route path='income/report/royalty-income' element={<Income />} />
           <Route path='income/report/club-income' element={<Income />} />
+          <Route path='staking-package' element={<StakingPackage />} />
+          <Route path='package-history' element={<PackageHistory />} />
+          <Route path='community/direct-referral' element={<Direct />} />
+          <Route path='community/level-team' element={<Level />} />
+          <Route path='account-summary' element={<AccountSummary />} />
+
+
 
 
         </Route>
