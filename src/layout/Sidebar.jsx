@@ -55,6 +55,10 @@ const Sidebar = () => {
                         <ul aria-expanded="false">
                             <li><a href="/top-up-auto">Top Up(Auto)</a></li>
                             <li><a href="/top-up-auto-history">Top Up(Auto) History</a></li>
+                            <li><a href="/top-up-manual">Top Up(Manual)</a></li>
+                            <li><a href="/top-up-manual-history">Top Up(Manual) History</a></li>
+                            <li><a href="/fund-summary">Fund Summary</a></li>
+
                         </ul>
                     </li>
 
@@ -78,12 +82,16 @@ const Sidebar = () => {
                     </li>
 
                     {/* Package */}
-                    <li><a href="widget-basic.html" className="" aria-expanded="false">
+                    <li><a href="javascript:void()" className="has-arrow" aria-expanded="false">
                         <div className="menu-icon">
                             <FontAwesomeIcon icon={faSuitcase} size="3x" style={{ width: '2rem' }} color="#F7931A" />
                         </div>
                         <span className="nav-text">Package</span>
                     </a>
+                        <ul aria-expanded="false">
+                            <li><a href="/staking-package">Staking Package</a></li>
+                            <li><a href="/package-history">Package History</a></li>
+                        </ul>
                     </li>
 
                     {/* Withdraw */}
@@ -96,7 +104,8 @@ const Sidebar = () => {
                     </a>
                         <ul aria-expanded="false">
                             <li><a href="/income-withdraw">Income Withdraw</a></li>
-                            <li><a href="withdraw-history">Withdraw History</a></li>
+                            <li><a href="/withdraw-history">Withdraw History</a></li>
+                            <li><a href="/account-summary">Account Summary</a></li>
                         </ul>
                     </li>
 
@@ -109,8 +118,8 @@ const Sidebar = () => {
                         <span className="nav-text">Community</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="table-bootstrap-basic.html">Direct Referral</a></li>
-                            <li><a href="table-datatable-basic.html">Level Team</a></li>
+                            <li><a href="/community/direct-referral">Direct Referral</a></li>
+                            <li><a href="/community/level-team">Level Team</a></li>
                         </ul>
                     </li>
                 </ul>

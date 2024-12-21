@@ -1,25 +1,21 @@
 import { useEffect, useState } from "react";
 import Footer from "../../layout/Footer";
 import axios from "axios";
-import { communityAPIConfig, packageAPIConfig, withdrawAPIConfig } from "../../api/apiConfig";
+import { packageAPIConfig } from "../../api/apiConfig";
 import { toast } from "react-toastify";
 import { TablePagination } from "@mui/material";
 
-const WithdrawHistory = () => {
+const PackageHistory = () => {
     const [data, setData] = useState('');
     const [limit, setLimit] = useState(10);
     const [pageNo, setPageNo] = useState(0);
-    const [fromDate, setFromDate] = useState('')
-    const [toDate, setToDate] = useState('')
 
     useEffect(() => {
         axios
-            .get(withdrawAPIConfig.withdrawHistory, {
+            .get(packageAPIConfig.investHistory, {
                 params: {
                     PageNumber: pageNo + 1,
                     PageSize: limit,
-                    FromDate: fromDate || 'NULL',
-                    Todate: toDate || 'NULL',
                 },
                 headers: {
                     "Content-Type": "application/json",
@@ -34,7 +30,7 @@ const WithdrawHistory = () => {
             .catch((error) => {
                 toast.error("Something went wrong");
             });
-    }, [pageNo, limit, fromDate, toDate]);
+    }, [pageNo, limit]);
 
     const handleChangePage = (event, newPage) => {
         setPageNo(newPage); // Update page number
@@ -51,40 +47,9 @@ const WithdrawHistory = () => {
                 <div className="row page-titles">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item">
-                            <a href="javascript:void(0)">Withdraw / History</a>
+                            <a href="javascript:void(0)">Package / Package History</a>
                         </li>
                     </ol>
-                </div>
-                <div className="grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    <div class="mb-3">
-                        <label class="mb-1"><strong>Start Date</strong></label>
-                        <input
-                            type="date"
-                            name="name"
-                            className="form-control"
-                            value={fromDate}
-                            autoComplete="off"
-                            onChange={(e) => setFromDate(e.target.value)}
-                        />
-                    </div>
-                    <div class="mb-3">
-                        <label class="mb-1"><strong>End Date</strong></label>
-                        <input
-                            type="date"
-                            name="name"
-                            className="form-control"
-                            value={toDate}
-                            autoComplete="off"
-                            onChange={(e) => setToDate(e.target.value)}
-                        />
-                    </div>
-                    {/* <button
-                type="button"
-                className="btn btn-info h-[35px] w-[80px]"
-
-            >
-                Apply
-            </button> */}
                 </div>
                 <div className="row">
                     <div className="col-lg-12">
@@ -95,14 +60,9 @@ const WithdrawHistory = () => {
                                         <thead>
                                             <tr>
                                                 <th><strong>Sno</strong></th>
-                                                <th><strong>Date Of Request</strong></th>
-                                                <th><strong>Date Of Action</strong></th>
-                                                <th><strong>Payment Mode</strong></th>
-                                                <th><strong>Wallet Address</strong></th>
-                                                <th><strong>Amuont </strong></th>
-                                                <th><strong>Admin Charge (5%)</strong></th>
-                                                <th><strong>Payout</strong></th>
-                                                <th><strong>Status</strong></th>
+                                                <th><strong>Date</strong></th>
+                                                <th><strong>Pack Type</strong></th>
+                                                <th><strong>Amount</strong></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -110,19 +70,14 @@ const WithdrawHistory = () => {
                                                 data.data.map((item, index) => (
                                                     <tr key={index}>
                                                         <td><strong>{index + 1 + pageNo * limit}</strong></td>
-                                                        <td>{item?.dateOFRequest.split('T')[0] || ''}</td>
-                                                        <td>{item?.dateOfAction.split('T')[0] || ''}</td>
-                                                        <td>{item?.paymenMode || ''}</td>
-                                                        <td>{item?.walletAddress || ''}</td>
-                                                        <td>{item?.amount || ''}</td>
-                                                        <td className="text-center">{item?.adminCharge || ''}</td>
-                                                        <td>{item?.payout || ''}</td>
-                                                        <td style={{color:item.status==='Process'?'yellow':item.status==='Approved'?'#32de84':'red'}}>{item?.status || ""}</td>
+                                                        <td>{item?.dor.split('T')[0] || ''}</td>
+                                                        <td>{item?.packType || ''}</td>
+                                                        <td className="text-green-400">$ {item?.amount || ""}</td>
                                                     </tr>
                                                 ))
                                             ) : (
                                                 <tr>
-                                                    <td colSpan="9" className="text-center">No records found</td>
+                                                    <td colSpan="5" className="text-center">No records found</td>
                                                 </tr>
                                             )}
                                         </tbody>
@@ -162,4 +117,4 @@ const WithdrawHistory = () => {
     );
 };
 
-export default WithdrawHistory;
+export default PackageHistory;
