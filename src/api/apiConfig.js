@@ -54,6 +54,7 @@ export const walletAPIConfig={
     topUpManualHistory:key+ '/ManualDepositeHistory',
     fundSummary:key+ '/FundSummary',
     paymentMode:key + '/GetDepositetAddress',
-    topUpManual:key+'/api/User/DepositeWallet'
+    topUpManual:key+'/api/User/DepositeWallet',
+    topUpAuto:key + '/api/User/AutoDeposite'
 }
 

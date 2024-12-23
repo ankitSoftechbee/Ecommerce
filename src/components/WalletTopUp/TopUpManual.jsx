@@ -2,20 +2,31 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy, faQrcode, faUpload } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { packageAPIConfig, walletAPIConfig } from "../../api/apiConfig";
+import { packageAPIConfig, walletAPIConfig, withdrawAPIConfig } from "../../api/apiConfig";
 import { toast, ToastContainer } from "react-toastify";
 import Footer from "../../layout/Footer";
 import { useFormik } from "formik";
+import * as Yup from "yup";
+import { Grid } from "@mui/material";
+
+const validationSchema = Yup.object({
+    amount: Yup.string().required('Amount is required'),
+    paymentMode: Yup.string().required('Payment Mode is required'),
+    hashCode: Yup.string().required('Hash Code is required'),
+    receipt: Yup.string().required('Receipt is required'),
+})
 
 const TopUpManual = () => {
     const [fundBalance, setFundBalance] = useState(0);
     const [address, setAddress] = useState("");
     const [qrImage, setQrImage] = useState("");
     const [showModal, setShowModal] = useState(false);
+    const [previewImage, setPreviewImage] = useState('')
 
     useEffect(() => {
         fetchBalance();
         fetchPaymentInfo();
+        fetchPaymentMode()
     }, []);
 
     const fetchBalance = () => {
@@ -53,15 +64,39 @@ const TopUpManual = () => {
             .catch(() => toast.error("Something went wrong"));
     };
 
+    const fetchPaymentMode = () => {
+        axios
+            .get(withdrawAPIConfig.getPaymentMode, {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: "Bearer " + localStorage.getItem("access_token"),
+                },
+            })
+            .then((response) => {
+                if (response.status === 200) {
+                    formik.setFieldValue('paymentMode', response?.data?.data[0]?.paymentMode || '')
+                }
+            })
+            .catch(() => toast.error("Something went wrong"));
+    };
+
     const handleSubmit = (values) => {
-        axios.post(`${walletAPIConfig.topUpManual}?Amount=${values.amount}&PaymentMode=${values.paymentMode}&Hashcode=${values.hashCode}&Receipt=${values.receipt}`, {}, {
+        console.log(values)
+        const formData = new FormData()
+        formData.append('Amount', values.amount)
+        formData.append('PaymentMode', values.paymentMode)
+        formData.append('Receipt', 'kdwejg')
+        formData.append('Hashcode', values.paymentMode)
+        formData.append('file', values.receipt)
+        axios.post(walletAPIConfig.topUpManual, formData, {
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "multipart/form-Data",
                 Authorization: "Bearer " + localStorage.getItem("access_token"),
             }
         }).then((response) => {
             if (response.status === 200) {
                 toast.success("Top up successful");
+                formik.resetForm()
             } else {
                 toast.error("Something went wrong");
             }
@@ -84,6 +119,17 @@ const TopUpManual = () => {
         toast.success("Address copied to clipboard!");
     };
 
+    const handleFileUpload = (event) => {
+        console.log(event)
+        const file = event.target.files[0];
+        if (file) {
+            console.log(file)
+            formik.setFieldValue('receipt', file)
+            setPreviewImage(URL.createObjectURL(file));
+        }
+    };
+
+
     return (
         <div className="content-body">
             <div className="container-fluid">
@@ -104,85 +150,128 @@ const TopUpManual = () => {
                             $ {fundBalance}
                         </span>
                     </h1>
-                    {address && qrImage && <div>
-                        <button
-                            type="button"
-                            className="btn btn-info mr-4"
-                            onClick={copyToClipboard}
-                        >
-                            <FontAwesomeIcon icon={faCopy} style={{ marginRight: "3px" }} />
-                            Copy Address
-                        </button>
-                        <button
-                            type="button"
-                            className="btn btn-info"
-                            onClick={() => setShowModal(true)}
-                        >
-                            <FontAwesomeIcon icon={faQrcode} style={{ marginRight: "3px" }} />
-                            Show QR Code
-                        </button>
-                    </div>}
+
                 </div>
                 <div className="card">
                     <div className="card-body">
                         <div className="basic-form">
                             {/* Input fields */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
-                                <div className="mb-3">
-                                    <label className="mb-1">
-                                        <strong>Amount</strong>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="amount"
-                                        className="form-control"
-                                        value=""
-                                        autoComplete="off"
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <label className="mb-1">
-                                        <strong>Payment Method</strong>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="paymentMethod"
-                                        className="form-control"
-                                        value=""
-                                        autoComplete="off"
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <label className="mb-1">
-                                        <strong>HashCode</strong>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="hashCode"
-                                        className="form-control"
-                                        value=""
-                                        autoComplete="off"
-                                    />
-                                </div>
-                            </div>
-                            <div className="mb-4 max-w-[250px]">
-                                <label
-                                    htmlFor="file-upload"
-                                    className="btn btn-info flex items-center space-x-2"
-                                >
-                                    <FontAwesomeIcon icon={faUpload} size="1x" />
-                                    <span>Upload Receipt</span>
-                                </label>
-                                <input
-                                    id="file-upload"
-                                    type="file"
-                                    className="hidden"
-                                    accept="image/*"
-                                />
-                            </div>
-                            <button type="button" className="btn btn-info">
-                                Submit
-                            </button>
+                            <Grid container spacing={3}>
+                                <Grid item xs={12} md={6}>
+                                    <div className="mb-3">
+                                        <label className="mb-1">
+                                            <strong>Amount</strong>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="amount"
+                                            className="form-control"
+                                            value={formik.values.amount}
+                                            autoComplete="off"
+                                            onChange={formik.handleChange}
+                                            onBlur={formik.handleBlur}
+                                        />
+                                        {formik.touched.amount && formik.errors.amount && (
+                                            <div className="text-danger">{formik.errors.amount}</div>
+                                        )}
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="mb-1">
+                                            <strong>HashCode</strong>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="hashCode"
+                                            className="form-control"
+                                            value={formik.values.hashCode}
+                                            autoComplete="off"
+                                            onChange={formik.handleChange}
+                                            onBlur={formik.handleBlur}
+                                        />
+                                        {formik.touched.hashCode && formik.errors.hashCode && (
+                                            <div className="text-danger">{formik.errors.hashCode}</div>
+                                        )}
+                                    </div>
+                                    <div className="mb-4 max-w-[250px]">
+                                        <label
+                                            htmlFor="file-upload"
+                                            className="btn btn-info flex items-center space-x-2"
+                                        >
+                                            <FontAwesomeIcon icon={faUpload} size="1x" />
+                                            <span>Upload Receipt</span>
+                                        </label>
+                                        <input
+                                            id="file-upload"
+                                            type="file"
+                                            className="hidden"
+                                            accept="image/*"
+                                            onChange={handleFileUpload}
+                                        />
+                                        {formik.touched.receipt && formik.errors.receipt && (
+                                            <div className="text-danger">{formik.errors.receipt}</div>
+                                        )}
+                                    </div>
+                                    {previewImage && (
+                                        <div className="mt-4 mb-4">
+                                            <img
+                                                src={previewImage}
+                                                alt="Preview"
+                                                className="rounded border border-gray-300"
+                                                style={{ width: "150px", height: "150px" }}
+                                            />
+                                        </div>
+                                    )}
+
+                                    <button type="button" className="btn btn-success" onClick={formik.handleSubmit}>
+                                        Submit
+                                    </button>
+                                </Grid>
+                                <Grid item xs={12} md={6}>
+                                    <div className="card" style={{boxShadow: "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset"}}>
+                                        <div className="card-body">
+                                            <div className="mb-3">
+                                                <label className="mb-1">
+                                                    <strong>Payment Method</strong>
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    name="paymentMethod"
+                                                    className="form-control"
+                                                    value={formik.values.paymentMode}
+                                                    autoComplete="off"
+                                                    onChange={formik.handleChange}
+                                                    onBlur={formik.handleBlur}
+                                                />
+                                                {formik.touched.paymentMode && formik.errors.paymentMode && (
+                                                    <div className="text-danger">{formik.errors.paymentMode}</div>
+                                                )}
+                                            </div>
+                                            {address && qrImage && <div>
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-info mr-4"
+                                                    onClick={copyToClipboard}
+                                                >
+                                                    <FontAwesomeIcon icon={faCopy} style={{ marginRight: "3px" }} />
+                                                    Copy Address
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-info"
+                                                    onClick={() => setShowModal(true)}
+                                                >
+                                                    <FontAwesomeIcon icon={faQrcode} style={{ marginRight: "3px" }} />
+                                                    Show QR Code
+                                                </button>
+                                            </div>}
+                                        </div>
+                                    </div>
+
+
+                                </Grid>
+
+                            </Grid>
+
                         </div>
                     </div>
                 </div>
