@@ -9,6 +9,7 @@ import * as Yup from "yup";
 const IncomeWithdraw = () => {
     const [withdrawBalance, setWithdrawBalance] = useState(0)
     const [paymentModeList, setPaymentModeList] = useState('')
+    const [showPassword,setShowPassword]=useState(false)
 
 
     useEffect(() => {
@@ -74,23 +75,23 @@ const IncomeWithdraw = () => {
             paidAmount: values.paidAmount || '',
             paymentMode: values.paymentMode || '',
             transPassword: values.transPassword || ''
-        },{
-            headers:{
+        }, {
+            headers: {
                 'Content-Type': 'application/json',
                 'Authorization': "Bearer " + localStorage.getItem("access_token"),
             }
-        }).then((response)=>{
-            if(response.status===200){
+        }).then((response) => {
+            if (response.status === 200) {
                 fetchBalance()
                 toast.success('Withdrawal successful')
             } else {
                 toast.error('Withdrawl Failed')
             }
-        }).catch((error)=>toast.error('Something went wrong'))
+        }).catch((error) => toast.error('Something went wrong'))
     }
 
     const validationSchema = Yup.object({
-        amount: Yup.number().min(10,'Minimum amount should be 10').required('Amount is required'),
+        amount: Yup.number().min(10, 'Minimum amount should be 10').required('Amount is required'),
         wallet: Yup.string().required('Wallet is required'),
         withdrawFee: Yup.string().required('Withdraw fee is required'),
         paymentMode: Yup.string().required('Payment mode is required'),
@@ -214,22 +215,34 @@ const IncomeWithdraw = () => {
                         </div>
                         <div class="mb-3">
                             <label class="mb-1"><strong>Transaction Password</strong></label>
-                            <input
-                                type="password"
-                                name="transPassword"
-                                className="form-control"
-                                value={formik.values.transPassword}
-                                autoComplete="off"
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                            />
+                            <div className="input-group transparent-append">
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    name="transPassword"
+                                    className="form-control"
+                                    value={formik.values.transPassword}
+                                    autoComplete="off"
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                />
+                                <span
+                                    className="input-group-text show-pass"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                >
+                                    {showPassword ? (
+                                        <i className="fa fa-eye"></i>
+                                    ) : (
+                                        <i className="fa fa-eye-slash"></i>
+                                    )}
+                                </span>
+                            </div>
                             {formik.touched.transPassword && formik.errors.transPassword && (
                                 <div className="text-danger">{formik.errors.transPassword}</div>
                             )}
                         </div>
                         <button
                             type="button"
-                            className="btn btn-info"
+                            className="btn btn-success"
                             onClick={formik.handleSubmit}
                         >
                             Submit

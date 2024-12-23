@@ -320,7 +320,7 @@ const MyProfile = () => {
                 </div>
 
             </div>
-            <button className="btn btn-primary" onClick={formik.handleSubmit}>Save Changes</button>
+            <button className="btn btn-success" onClick={formik.handleSubmit}>Save Changes</button>
             <Footer />
         </div>
         <ToastContainer

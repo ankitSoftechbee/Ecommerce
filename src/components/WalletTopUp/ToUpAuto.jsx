@@ -22,13 +22,6 @@ const TopUpAuto = () => {
     }, []);
 
     const getAmount = async () => {
-        // const _res = await services.requestApi.getAmount();
-        // if ("fundBalance" in _res) {
-        //     setTotalamt(_res);
-        // } else {
-        //     setTotalamt({});
-        //     toastr.error("Something went wrong, try again", "Error", toastrOption);
-        // }
         axios
             .get(packageAPIConfig.checkWalletBalance, {
                 headers: {
@@ -38,7 +31,6 @@ const TopUpAuto = () => {
             })
             .then((response) => {
                 if (response.status === 200) {
-                    // setFundBalance(response.data.fundBalance);
                     setTotalamt(response.data)
                 }
             })
@@ -138,19 +130,7 @@ const TopUpAuto = () => {
                     amount: depositData?.amount,
                     coinAmount: depositData?.coinAmount,
                 };
-                // const _res = await services.requestApi.saveDespositUSDT(body);
-                // if (_res > 0) {
-                //   toastr.success("Amount added Successfully", "Success", toastrOption);
-                //   setLoader(false);
-                //   setDepositData((prev) => ({ ...prev, amount: "" }));
-                // } else {
-                //   toastr.error(
-                //     "Something Went Wrong, Try Again",
-                //     "Error",
-                //     toastrOption
-                //   );
-                // //   setLoader(false);
-                // }.
+            
                 axios.post(walletAPIConfig.topUpAuto, body, {
                     headers: {
                         'Content-Type': 'application/json',
@@ -159,7 +139,8 @@ const TopUpAuto = () => {
                 }).then((response) => {
                     if (response.status === 200) {
                         toast.success("Amount added Successfully");
-                        //   setLoader(false);
+                        getAmount();
+                        getMetaMaskWallet();
                         setDepositData((prev) => ({ ...prev, amount: "" }));
                     } else {
                         toast.error("Something Went Wrong, Try Again");
@@ -226,7 +207,7 @@ const TopUpAuto = () => {
                         </div>
                         <button
                             type="button"
-                            className="btn btn-info"
+                            className="btn btn-success"
                             onClick={() => onSubmit()}
                         >
                             Submit

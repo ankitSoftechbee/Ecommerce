@@ -201,7 +201,7 @@ const Header = () => {
                                     <div className="d-flex align-items-center sidebar-info">
                                         <div className="user-info">
                                             <span className="font-w500 d-block  fs-5 text-white">{data?.name || ''}</span>
-                                            <small className="text-end font-w400">Admin</small>
+                                            {/* <small className="text-end font-w400">Admin</small> */}
                                         </div>
                                         <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M12.8334 1.08331L7.00002 6.91665L1.16669 1.08331" stroke="#FFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />

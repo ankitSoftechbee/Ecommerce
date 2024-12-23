@@ -27,6 +27,10 @@ import AccountSummary from '../components/Withdraw/AccountSummary';
 import TopUpManualHistory from '../components/WalletTopUp/TopUpManualHistory';
 import FundSummary from '../components/WalletTopUp/FundSummary';
 import TopUpManual from '../components/WalletTopUp/TopUpManual';
+import P2PTransfer from '../components/Transfer/P2PTransfer';
+import P2PTransferHistory from '../components/Transfer/P2PTransferHistory';
+import IncomeToFund from '../components/Transfer/IncomeToFund';
+import IncomeToFundHistory from '../components/Transfer/IncomeToFundHistory';
 
 const Routing = () => {
   return (
@@ -61,9 +65,14 @@ const Routing = () => {
 
 
           <Route path='top-up-manual-history' element={<TopUpManualHistory />} />
-          <Route path='fund-summary' element={<FundSummary />} /> 
+          <Route path='fund-summary' element={<FundSummary />} />
           <Route path='income-withdraw' element={<IncomeWithdraw />} />
           <Route path='withdraw-history' element={<WithdrawHistory />} />
+
+          <Route path='p2p-transfer' element={<P2PTransfer />} />
+          <Route path='p2p-transfer-history' element={<P2PTransferHistory />} />
+          <Route path='income-to-fund-transfer' element={<IncomeToFund />} />
+          <Route path='income-to-fund-transfer-history' element={<IncomeToFundHistory />} />
 
           <Route path='income/report/trading-profit' element={<Income />} />
           <Route path='income/report/trading-profit-income' element={<Income />} />

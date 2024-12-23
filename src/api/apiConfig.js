@@ -44,17 +44,24 @@ export const communityAPIConfig = {
 
 export const withdrawAPIConfig = {
     getPaymentMode: key + '/GetPaymentMode',
-    incomeWithdraw:key + '/api/User/Withdraw',
-    withdrawHistory:key + '/WithdrawReport',
-    accountSummary:key+'/AccountSummary'
+    incomeWithdraw: key + '/api/User/Withdraw',
+    withdrawHistory: key + '/WithdrawReport',
+    accountSummary: key + '/AccountSummary'
 }
 
-export const walletAPIConfig={
-    topUpAutoHistory:key+'/AutoDepositeHistory',
-    topUpManualHistory:key+ '/ManualDepositeHistory',
-    fundSummary:key+ '/FundSummary',
-    paymentMode:key + '/GetDepositetAddress',
-    topUpManual:key+'/api/User/DepositeWallet',
-    topUpAuto:key + '/api/User/AutoDeposite'
+export const walletAPIConfig = {
+    topUpAutoHistory: key + '/AutoDepositeHistory',
+    topUpManualHistory: key + '/ManualDepositeHistory',
+    fundSummary: key + '/FundSummary',
+    paymentMode: key + '/GetDepositetAddress',
+    topUpManual: key + '/api/User/DepositeWallet',
+    topUpAuto: key + '/api/User/AutoDeposite'
+}
+
+export const transferAPIConfig = {
+    p2pTransfer: key + '/api/User/P2PTransfer',
+    p2pTransferHistory: key + '/TransferHistory',
+    incomeToFundTransfer:key + '/api/User/IncomeToFund',
+    incomeToFundHistory:key + '/IncomeTofundHistory'
 }
 
