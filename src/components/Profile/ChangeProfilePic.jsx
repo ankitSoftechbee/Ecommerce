@@ -83,7 +83,7 @@ const ChangeProfilePic = () => {
                                     </div>
                                 )}
 
-                                <button type="button" className="btn btn-info" onClick={hanldeSubmit}>
+                                <button type="button" className="btn btn-success" onClick={hanldeSubmit}>
                                     Submit
                                 </button>
 

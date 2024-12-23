@@ -161,7 +161,7 @@ const ChangeTransactionPassword = () => {
                                         )}
                                     </div>
                                 </div>
-                                <button type="submit" className="btn btn-info">
+                                <button type="submit" className="btn btn-success">
                                     Submit
                                 </button>
                             </form>

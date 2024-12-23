@@ -14,6 +14,7 @@ const validationSchema = Yup.object({
 const CryptoWalletChange = () => {
     const [isOtpModalOpen, setIsOtpModalOpen] = useState(false);
     const [check, setCheck] = useState(false) // check the usdwallet is update first time or not
+    const [showPassword, setShowPassword] = useState(false)
 
 
     useEffect(() => {
@@ -115,15 +116,27 @@ const CryptoWalletChange = () => {
                                         <strong>Transaction password</strong>
                                     </label>
                                     <span className="text-danger">*</span>
-                                    <input
-                                        type="text"
-                                        name="transactionPassword"
-                                        className="form-control"
-                                        value={formik.values.transactionPassword}
-                                        autoComplete="off"
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                    />
+                                    <div className="input-group transparent-append">
+                                        <input
+                                            type={showPassword ? 'text':'password'}
+                                            name="transactionPassword"
+                                            className="form-control"
+                                            value={formik.values.transactionPassword}
+                                            autoComplete="off"
+                                            onChange={formik.handleChange}
+                                            onBlur={formik.handleBlur}
+                                        />
+                                        <span
+                                            className="input-group-text show-pass"
+                                            onClick={() => setShowPassword(!showPassword)}
+                                        >
+                                            {showPassword ? (
+                                                <i className="fa fa-eye"></i>
+                                            ) : (
+                                                <i className="fa fa-eye-slash"></i>
+                                            )}
+                                        </span>
+                                    </div>
                                     {formik.touched.transactionPassword && formik.errors.transactionPassword && (
                                         <div className="text-danger">{formik.errors.transactionPassword}</div>
                                     )}
@@ -131,7 +144,7 @@ const CryptoWalletChange = () => {
                             </div>
                             <button
                                 type="button"
-                                className="btn btn-info"
+                                className="btn btn-success"
                                 onClick={formik.handleSubmit}
 
                             >

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faDollarSign, faFileAlt, faPeopleGroup, faSuitcase } from "@fortawesome/free-solid-svg-icons"
+import { faDollarSign, faFileAlt, faMoneyBillTransfer, faPeopleGroup, faShare, faSuitcase } from "@fortawesome/free-solid-svg-icons"
 import { faBitcoinSign } from "@fortawesome/free-solid-svg-icons/faBitcoinSign"
 
 
@@ -62,6 +62,36 @@ const Sidebar = () => {
                         </ul>
                     </li>
 
+                       {/* Package */}
+                       <li><a href="javascript:void()" className="has-arrow" aria-expanded="false">
+                        <div className="menu-icon">
+                            <FontAwesomeIcon icon={faSuitcase} size="3x" style={{ width: '2rem' }} color="#F7931A" />
+                        </div>
+                        <span className="nav-text">Package</span>
+                    </a>
+                        <ul aria-expanded="false">
+                            <li><a href="/staking-package">Staking Package</a></li>
+                            <li><a href="/package-history">Package History</a></li>
+                        </ul>
+                    </li>
+
+                    {/* Transfer */}
+
+                    <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
+                        <div className="menu-icon">
+                            <FontAwesomeIcon icon={faShare} size="4x" style={{ width: '2rem' }} color="#F7931A" />
+                        </div>
+                        <span className="nav-text">Transfer</span>
+                    </a>
+                        <ul aria-expanded="false">
+                            <li><a href="/p2p-transfer">P2P Transfer</a></li>
+                            <li><a href="/p2p-transfer-history">P2P Transfer History</a></li>
+                            <li><a href="/income-to-fund-transfer">Income to Fund</a></li>
+                            <li><a href="/income-to-fund-transfer-history">Income to Fund History</a></li>
+
+                        </ul>
+                    </li>
+
                     {/* Income Reports */}
                     <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
                         <div className="menu-icon">
@@ -81,23 +111,11 @@ const Sidebar = () => {
                         </ul>
                     </li>
 
-                    {/* Package */}
-                    <li><a href="javascript:void()" className="has-arrow" aria-expanded="false">
-                        <div className="menu-icon">
-                            <FontAwesomeIcon icon={faSuitcase} size="3x" style={{ width: '2rem' }} color="#F7931A" />
-                        </div>
-                        <span className="nav-text">Package</span>
-                    </a>
-                        <ul aria-expanded="false">
-                            <li><a href="/staking-package">Staking Package</a></li>
-                            <li><a href="/package-history">Package History</a></li>
-                        </ul>
-                    </li>
 
                     {/* Withdraw */}
                     <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
                         <div className="menu-icon">
-                            <FontAwesomeIcon icon={faDollarSign} size="3x" style={{ width: '2rem' }} color="#F7931A" />
+                            <FontAwesomeIcon icon={faBitcoinSign} size="3x" style={{ width: '2rem' }} color="#F7931A" />
 
                         </div>
                         <span className="nav-text">Withdraw</span>
