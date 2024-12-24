@@ -65,3 +65,7 @@ export const transferAPIConfig = {
     incomeToFundHistory:key + '/IncomeTofundHistory'
 }
 
+export const clubAndRewardAPIConfig={
+    rewardReport:key+ '/RewardReport',
+    clubReport:key+ '/ClubReport',
+}

@@ -1,0 +1,36 @@
+.sign-in-your h3{
+    line-height: 1.5;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+.profile-page-registration{
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 1rem 0.8rem;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  white-space: nowrap;
+  display: inline-block;
+  animation: scroll 20s linear infinite;
+}
+
+@media (max-width:580px){
+  .profile-page-registration{
+    font-size: 12px;
+    margin: 0 0 1rem 0.6rem;
+
+  }  
+}

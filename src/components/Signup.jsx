@@ -3,6 +3,8 @@ import { logInAPIConfig, signUpAPIConfig } from "../api/apiConfig"
 import { useFormik } from "formik"
 import * as Yup from "yup";
 import axios from "axios";
+import bgImages from "../assets/images/bg1.png"
+import logoImage from "../assets/images/logo.png"
 import { useEffect, useState, useCallback } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import Confirmation from "./Confirmation";
@@ -25,7 +27,7 @@ const Signup = () => {
     const [isSponser, setIsSponser] = useState(false);
     const [debounceTimer, setDebounceTimer] = useState(null);
     const [sponsorName, setSponsorName] = useState('')
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
     const [userDetails, setUserDetails] = useState('')
 
     useEffect(() => {
@@ -146,7 +148,7 @@ const Signup = () => {
         }, 2000)
 
     }
-    return <div style={{ backgroundImage: "url(src/assets/images/bg1.png)", backgroundPosition: "center", backgroundSize: "cover", minHeight: '100vh' }}>
+    return <div style={{ backgroundImage: `url(${bgImages})`, backgroundPosition: "center", backgroundSize: "cover", minHeight: '100vh' }}>
         <div className="container h-100">
             <div className="row h-100 align-items-center justify-content-center">
                 <div className="col-xl-6 col-lg-6">
@@ -155,7 +157,7 @@ const Signup = () => {
                             <div className="row m-0 justify-content-center">
                                 <div className="col-xl-12 col-md-12 col-lg-12 flex items-center">
                                     <div className="sign-in-your w-full">
-                                        <center><img src="src/assets/images/logo.png" style={{ height: "100px", width: "auto" }}></img></center>
+                                        <center><img src={logoImage} style={{ height: "100px", width: "auto" }}></img></center>
                                         <h3 className="text-center">Sign in your account</h3>
                                         <div className="text-white text-center mb-8">Welcome back !!! To GMFX</div>
                                         <div className="mb-3">

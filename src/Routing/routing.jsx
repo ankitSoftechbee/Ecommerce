@@ -31,6 +31,8 @@ import P2PTransfer from '../components/Transfer/P2PTransfer';
 import P2PTransferHistory from '../components/Transfer/P2PTransferHistory';
 import IncomeToFund from '../components/Transfer/IncomeToFund';
 import IncomeToFundHistory from '../components/Transfer/IncomeToFundHistory';
+import RewardReport from '../components/ClubAndReward/RewardReport';
+import ClubReport from '../components/ClubAndReward/ClubReport';
 
 const Routing = () => {
   return (
@@ -81,6 +83,10 @@ const Routing = () => {
           <Route path='income/report/reward-income' element={<Income />} />
           <Route path='income/report/royalty-income' element={<Income />} />
           <Route path='income/report/club-income' element={<Income />} />
+
+          <Route path='reward-report' element={<RewardReport />} />
+          <Route path='club-report' element={<ClubReport />} />
+          
           <Route path='staking-package' element={<StakingPackage />} />
           <Route path='package-history' element={<PackageHistory />} />
           <Route path='community/direct-referral' element={<Direct />} />
