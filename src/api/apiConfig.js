@@ -8,7 +8,7 @@ export const signUpAPIConfig = {
     signUp: key + '/api/Authentication/signUp',
     countryList: key + '/api/Authentication/Country',
     checkSPONSERID: key + '/api/Authentication/ChecKId',
-    sendEmail: key + 'api/Authentication/MSGEMAIL'
+    sendEmail: key + '/api/Authentication/MSGEMAIL'
 }
 
 export const dashboardAPIConfig = {
