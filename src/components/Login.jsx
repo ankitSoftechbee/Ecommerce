@@ -3,6 +3,8 @@ import { logInAPIConfig } from "../api/apiConfig"
 import { useFormik } from "formik"
 import * as Yup from "yup";
 import axios from "axios";
+import bgImages from "../assets/images/bg1.png"
+import logoImage from "../assets/images/logo.png"
 import { useEffect, useState } from "react";
 import Loader from "../lib/Loader";
 import { toast, ToastContainer } from "react-toastify";
@@ -58,7 +60,7 @@ const Login = () => {
     if (loading) {
         return <Loader />
     }
-    return <div style={{ backgroundImage: "url(src/assets/images/bg1.png)", backgroundPosition: "center", backgroundSize: "cover", minHeight: '100vh' }}>
+    return <div style={{ backgroundImage:  `url(${bgImages})`, backgroundPosition: "center", backgroundSize: "cover", minHeight: '100vh' }}>
         <div className="container h-100">
             <div className="row h-100 align-items-center justify-content-center">
                 <div className="col-xl-6 col-lg-6">
@@ -78,7 +80,7 @@ const Login = () => {
                                 </div> */}
                                 <div className="col-xl-12 col-md-12 col-lg-12 flex items-center">
                                     <div className="sign-in-your w-full">
-                                        <center><img src="src/assets/images/logo.png" style={{ height: "100px", width: "auto" }}></img></center>
+                                        <center><img src={logoImage} style={{ height: "100px", width: "auto" }}></img></center>
                                         <h3 className="text-center">Sign in your account</h3>
                                         <div className="text-white text-center mb-8">Welcome back !!! To GMFX</div>
 

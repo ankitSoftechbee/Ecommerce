@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faDollarSign, faFileAlt, faMoneyBillTransfer, faPeopleGroup, faShare, faSuitcase } from "@fortawesome/free-solid-svg-icons"
 import { faBitcoinSign } from "@fortawesome/free-solid-svg-icons/faBitcoinSign"
+import { faRavelry } from "@fortawesome/free-brands-svg-icons"
 
 
 const Sidebar = () => {
@@ -108,6 +109,19 @@ const Sidebar = () => {
                             <li><a href="/income/report/royalty-income">Royalty Income</a></li>
                             <li><a href="/income/report/club-income">Club Income</a></li>
 
+                        </ul>
+                    </li>
+
+                     {/* Club and rewards */}
+                     <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
+                        <div className="menu-icon">
+                            <FontAwesomeIcon icon={faRavelry} size="4x" style={{ width: '2rem' }} color="#F7931A" />
+                        </div>
+                        <span className="nav-text">Club And Rewards</span>
+                    </a>
+                        <ul aria-expanded="false">
+                            <li><a href="/reward-report">Reward Report</a></li>
+                            <li><a href="/club-report">Club Report</a></li>
                         </ul>
                     </li>
 

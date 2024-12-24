@@ -24,6 +24,9 @@ const Confirmation = ({ handleClose, userDetails }) => {
                     <p className="text-sm">
                         <span className="font-bold">Password:</span> {userDetails?.outputPassword || ''}
                     </p>
+                    <p className="text-sm">
+                        <span className="font-bold">Transacion Password:</span> {userDetails?.transPassword || ''}
+                    </p>
                 </div>
                 <p className="text-center text-sm">
                     Please use the above credentials to log in. Thank you!
