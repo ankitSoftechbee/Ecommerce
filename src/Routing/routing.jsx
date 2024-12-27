@@ -33,6 +33,7 @@ import IncomeToFund from '../components/Transfer/IncomeToFund';
 import IncomeToFundHistory from '../components/Transfer/IncomeToFundHistory';
 import RewardReport from '../components/ClubAndReward/RewardReport';
 import ClubReport from '../components/ClubAndReward/ClubReport';
+import React from 'react';
 
 const Routing = () => {
   return (
@@ -47,7 +48,10 @@ const Routing = () => {
           path="/"
           element={
             <ProtectedRoute>
-              <Layout />
+              <React.Suspense fallback={<>...</>}>
+
+                <Layout />
+              </React.Suspense>
             </ProtectedRoute>
           }
         >
@@ -86,7 +90,7 @@ const Routing = () => {
 
           <Route path='reward-report' element={<RewardReport />} />
           <Route path='club-report' element={<ClubReport />} />
-          
+
           <Route path='staking-package' element={<StakingPackage />} />
           <Route path='package-history' element={<PackageHistory />} />
           <Route path='community/direct-referral' element={<Direct />} />
@@ -99,6 +103,9 @@ const Routing = () => {
         </Route>
       </Routes>
     </Router>
+
+
+
   );
 };
 

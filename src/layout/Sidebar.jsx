@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faDollarSign, faFileAlt, faMoneyBillTransfer, faPeopleGroup, faShare, faSuitcase } from "@fortawesome/free-solid-svg-icons"
 import { faBitcoinSign } from "@fortawesome/free-solid-svg-icons/faBitcoinSign"
 import { faRavelry } from "@fortawesome/free-brands-svg-icons"
+import { Link } from "react-router-dom"
 
 
 const Sidebar = () => {
@@ -10,7 +11,7 @@ const Sidebar = () => {
         <div className="dlabnav">
             <div className="dlabnav-scroll">
                 <ul className="metismenu" id="menu">
-                    <li><a className="" href="/" aria-expanded="false">
+                    <li><Link className="" to="/" aria-expanded="false">
                         <div className="menu-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="IconlyHome"><g id="Home">
@@ -19,7 +20,7 @@ const Sidebar = () => {
                             </svg>
                         </div>
                         <span className="nav-text">Dashboard</span>
-                    </a>
+                    </Link>
                     </li>
 
                     {/* MY profile */}
@@ -36,13 +37,13 @@ const Sidebar = () => {
                         <span className="nav-text">Profile</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/myprofile">My Profile</a></li>
-                            <li><a href="/change-password">Change Password</a></li>
-                            <li><a href="/change-profile-pic">Change Profile Pic</a></li>
-                            <li><a href="/crypto-wallet-change">Crypto Wallet Change</a></li>
-                            <li><a href="/change-transaction-password">Change Transaction Password</a></li>
-                            <li><a href="/support">Support</a></li>
-                            <li><a href="/support-response">Support Response</a></li>
+                            <li><Link to="/myprofile">My Profile</Link></li>
+                            <li><Link to="/change-password">Change Password</Link></li>
+                            <li><Link to="/change-profile-pic">Change Profile Pic</Link></li>
+                            <li><Link to="/crypto-wallet-change">Crypto Wallet Change</Link></li>
+                            <li><Link to="/change-transaction-password">Change Transaction Password</Link></li>
+                            <li><Link to="/support">Support</Link></li>
+                            <li><Link to="/support-response">Support Response</Link></li>
                         </ul>
                     </li>
 
@@ -54,11 +55,11 @@ const Sidebar = () => {
                         <span className="nav-text">Wallet TopUp</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/top-up-auto">Top Up(Auto)</a></li>
-                            <li><a href="/top-up-auto-history">Top Up(Auto) History</a></li>
-                            <li><a href="/top-up-manual">Top Up(Manual)</a></li>
-                            <li><a href="/top-up-manual-history">Top Up(Manual) History</a></li>
-                            <li><a href="/fund-summary">Fund Summary</a></li>
+                            <li><Link to="/top-up-auto">Top Up(Auto)</Link></li>
+                            <li><Link to="/top-up-auto-history">Top Up(Auto) History</Link></li>
+                            <li><Link to="/top-up-manual">Top Up(Manual)</Link></li>
+                            <li><Link to="/top-up-manual-history">Top Up(Manual) History</Link></li>
+                            <li><Link to="/fund-summary">Fund Summary</Link></li>
 
                         </ul>
                     </li>
@@ -71,8 +72,8 @@ const Sidebar = () => {
                         <span className="nav-text">Package</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/staking-package">Staking Package</a></li>
-                            <li><a href="/package-history">Package History</a></li>
+                            <li><Link to="/staking-package">Staking Package</Link></li>
+                            <li><Link to="/package-history">Package History</Link></li>
                         </ul>
                     </li>
 
@@ -85,10 +86,10 @@ const Sidebar = () => {
                         <span className="nav-text">Transfer</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/p2p-transfer">P2P Transfer</a></li>
-                            <li><a href="/p2p-transfer-history">P2P Transfer History</a></li>
-                            <li><a href="/income-to-fund-transfer">Income to Fund</a></li>
-                            <li><a href="/income-to-fund-transfer-history">Income to Fund History</a></li>
+                            <li><Link to="/p2p-transfer">P2P Transfer</Link></li>
+                            <li><Link to="/p2p-transfer-history">P2P Transfer History</Link></li>
+                            <li><Link to="/income-to-fund-transfer">Income to Fund</Link></li>
+                            <li><Link to="/income-to-fund-transfer-history">Income to Fund History</Link></li>
 
                         </ul>
                     </li>
@@ -101,13 +102,13 @@ const Sidebar = () => {
                         <span className="nav-text">Income Reports</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/income/report/trading-profit">Trading Profit</a></li>
-                            <li><a href="/income/report/trading-profit-income">Trading Profit Income</a></li>
-                            <li><a href="/income/report/direct-income">Direct Income</a></li>
-                            <li><a href="/income/report/level-income">Level Income</a></li>
-                            <li><a href="/income/report/reward-income">Reward Income</a></li>
-                            <li><a href="/income/report/royalty-income">Royalty Income</a></li>
-                            <li><a href="/income/report/club-income">Club Income</a></li>
+                            <li><Link to="/income/report/trading-profit">Trading Profit</Link></li>
+                            <li><Link to="/income/report/trading-profit-income">Trading Profit Income</Link></li>
+                            <li><Link to="/income/report/direct-income">Direct Income</Link></li>
+                            <li><Link to="/income/report/level-income">Level Income</Link></li>
+                            <li><Link to="/income/report/reward-income">Reward Income</Link></li>
+                            <li><Link to="/income/report/royalty-income">Royalty Income</Link></li>
+                            <li><Link to="/income/report/club-income">Club Income</Link></li>
 
                         </ul>
                     </li>
@@ -120,8 +121,8 @@ const Sidebar = () => {
                         <span className="nav-text">Club And Rewards</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/reward-report">Reward Report</a></li>
-                            <li><a href="/club-report">Club Report</a></li>
+                            <li><Link to="/reward-report">Reward Report</Link></li>
+                            <li><Link to="/club-report">Club Report</Link></li>
                         </ul>
                     </li>
 
@@ -135,9 +136,9 @@ const Sidebar = () => {
                         <span className="nav-text">Withdraw</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/income-withdraw">Income Withdraw</a></li>
-                            <li><a href="/withdraw-history">Withdraw History</a></li>
-                            <li><a href="/account-summary">Account Summary</a></li>
+                            <li><Link to="/income-withdraw">Income Withdraw</Link></li>
+                            <li><Link to="/withdraw-history">Withdraw History</Link></li>
+                            <li><Link to="/account-summary">Account Summary</Link></li>
                         </ul>
                     </li>
 
@@ -150,8 +151,8 @@ const Sidebar = () => {
                         <span className="nav-text">Community</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/community/direct-referral">Direct Referral</a></li>
-                            <li><a href="/community/level-team">Level Team</a></li>
+                            <li><Link to="/community/direct-referral">Direct Referral</Link></li>
+                            <li><Link to="/community/level-team">Level Team</Link></li>
                         </ul>
                     </li>
                 </ul>
