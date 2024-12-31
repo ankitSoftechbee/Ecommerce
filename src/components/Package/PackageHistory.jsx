@@ -47,7 +47,7 @@ const PackageHistory = () => {
                 <div className="row page-titles">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item">
-                            <a href="javascript:void(0)">Package / Package History</a>
+                            <a href="javascript:void(0)">Subscription History</a>
                         </li>
                     </ol>
                 </div>
@@ -72,7 +72,7 @@ const PackageHistory = () => {
                                                         <td><strong>{index + 1 + pageNo * limit}</strong></td>
                                                         <td>{item?.dor.split('T')[0] || ''}</td>
                                                         <td>{item?.packType || ''}</td>
-                                                        <td className="text-green-400">$ {item?.amount || ""}</td>
+                                                        <td className="text-green-400">{item?.amount || "0"} USDT</td>
                                                     </tr>
                                                 ))
                                             ) : (

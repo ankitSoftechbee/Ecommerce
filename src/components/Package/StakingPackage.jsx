@@ -65,7 +65,7 @@ const StakingPackage = () => {
 
     const formik = useFormik({
         initialValues: {
-            amount: '',
+            amount: '100',
         },
         validationSchema: validationSchema,
         onSubmit: handleSubmit,
@@ -77,11 +77,11 @@ const StakingPackage = () => {
                 <div className="row page-titles">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item">
-                            <a href="javascript:void(0)">Package</a>
+                            <a href="javascript:void(0)">Bot</a>
                         </li>
                     </ol>
                 </div>
-                <h1 className="text-white text-xl text-center m-2">Available Amount is : <span className="font-semibold" style={{ color: fundBalance < 100 ? 'red' : '#32de84' }}>$ {fundBalance}</span></h1>
+                <h1 className="text-white text-xl text-center m-2">Available Amount is : <span className="font-semibold" style={{ color: fundBalance < 100 ? 'red' : '#32de84' }}>{fundBalance} USDT</span></h1>
                 <div className="card">
                     <div className="card-body">
                         <div className="basic-form">
@@ -100,6 +100,7 @@ const StakingPackage = () => {
                                             autoComplete="off"
                                             onChange={formik.handleChange}
                                             onBlur={formik.handleBlur}
+                                            readOnly
                                         />
                                         {formik.touched.amount && formik.errors.amount && (
                                             <div className="text-danger">{formik.errors.amount}</div>
@@ -110,7 +111,7 @@ const StakingPackage = () => {
                                         className="btn btn-success"
                                         onClick={formik.handleSubmit}
                                     >
-                                        Submit
+                                        Buy Now
                                     </button>
                                 </form>
                                 <img

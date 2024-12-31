@@ -60,7 +60,7 @@ const Bonus = (props) => {
                                 <div className="card-header border-0">
                                     <div className="wallet-info">
                                         <span className="font-w400 d-block text-white">{item.name}</span>
-                                        <h4 className="fs-24 font-w600 mb-0 d-inline-flex me-2">${price}</h4>
+                                        <h4 className="fs-24 font-w600 mb-0 d-inline-flex me-2">{price} USDT</h4>
                                     </div>
                                     <div className="wallet-icon">
                                         <svg width="62" height="39" viewBox="0 0 62 39" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -85,7 +85,7 @@ const IncomeToFund = () => {
             <div class="card">
                 <div class="card-header">
                     <div className="w-full">
-                        <h1 className="text-white text-xl text-center m-2">Available Amount is : <span className="font-semibold" style={{ color: withdrawBalance < 10 ? 'red' : '#32de84' }}>$ {withdrawBalance}</span></h1>
+                        <h1 className="text-white text-xl text-center m-2">Available Amount is : <span className="font-semibold" style={{ color: withdrawBalance < 10 ? 'red' : '#32de84' }}>{withdrawBalance} USDT</span></h1>
                     </div>
                 </div>
                 <div class="card-body">

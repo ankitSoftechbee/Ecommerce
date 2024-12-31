@@ -52,7 +52,7 @@ const Wallet = (props) => {
                                 <div className="card-body p-4 p-lg-3 p-xl-4">
                                     <div className="students1 one d-flex align-items-center justify-content-between">
                                         <div className="content">
-                                            <h2 className="mb-0">${price}</h2>
+                                            <h2 className="mb-0">{price} USDT</h2>
                                             <span className="mb-2 fs-14">{item.name}</span>
                                         </div>
                                         <div>

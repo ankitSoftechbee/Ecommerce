@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faDollarSign, faFileAlt, faMoneyBillTransfer, faPeopleGroup, faShare, faSuitcase } from "@fortawesome/free-solid-svg-icons"
+import { faCog, faDollarSign, faFileAlt, faMoneyBillTransfer, faPeopleGroup, faShare, faSuitcase } from "@fortawesome/free-solid-svg-icons"
 import { faBitcoinSign } from "@fortawesome/free-solid-svg-icons/faBitcoinSign"
 import { faRavelry } from "@fortawesome/free-brands-svg-icons"
+import { Link } from "react-router-dom"
 
 
 const Sidebar = () => {
@@ -10,7 +11,7 @@ const Sidebar = () => {
         <div className="dlabnav">
             <div className="dlabnav-scroll">
                 <ul className="metismenu" id="menu">
-                    <li><a className="" href="/" aria-expanded="false">
+                    <li><Link className="" to="/user" aria-expanded="false">
                         <div className="menu-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="IconlyHome"><g id="Home">
@@ -19,130 +20,125 @@ const Sidebar = () => {
                             </svg>
                         </div>
                         <span className="nav-text">Dashboard</span>
-                    </a>
+                    </Link>
                     </li>
 
                     {/* MY profile */}
-                    <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
-                        <div className="menu-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9.34933 14.8577C5.38553 14.8577 2 15.47 2 17.9174C2 20.3666 5.364 21 9.34933 21C13.3131 21 16.6987 20.3877 16.6987 17.9404C16.6987 15.4911 13.3347 14.8577 9.34933 14.8577Z" fill="#B9A8FF" />
-                                <path opacity="0.4" d="M9.34935 12.5248C12.049 12.5248 14.2124 10.4062 14.2124 7.76241C14.2124 5.11865 12.049 3 9.34935 3C6.65072 3 4.48633 5.11865 4.48633 7.76241C4.48633 10.4062 6.65072 12.5248 9.34935 12.5248Z" fill="#763ed0" />
-                                <path opacity="0.4" d="M16.1734 7.84875C16.1734 9.19507 15.7605 10.4513 15.0364 11.4948C14.9611 11.6021 15.0276 11.7468 15.1587 11.7698C15.3407 11.7995 15.5276 11.8177 15.7184 11.8216C17.6167 11.8704 19.3202 10.6736 19.7908 8.87118C20.4885 6.19676 18.4415 3.79543 15.8339 3.79543C15.5511 3.79543 15.2801 3.82418 15.0159 3.87688C14.9797 3.88454 14.9405 3.90179 14.921 3.93246C14.8955 3.97174 14.9141 4.02253 14.9395 4.05607C15.7233 5.13216 16.1734 6.44207 16.1734 7.84875Z" fill="#763ed0" />
-                                <path d="M21.7791 15.1693C21.4317 14.444 20.5932 13.9466 19.3172 13.7023C18.7155 13.5586 17.0853 13.3545 15.5697 13.3832C15.5472 13.3861 15.5344 13.4014 15.5325 13.411C15.5295 13.4263 15.5364 13.4493 15.5658 13.4656C16.2663 13.8048 18.9738 15.2805 18.6333 18.3928C18.6186 18.5289 18.7292 18.6439 18.8671 18.6247C19.5335 18.5318 21.2478 18.1705 21.7791 17.0475C22.0736 16.4534 22.0736 15.7635 21.7791 15.1693Z" fill="#B9A8FF" />
-                            </svg>
+                    <li><a className="has-arrow " href="#" aria-expanded="false">
+                    <div className="menu-icon">
+                            <FontAwesomeIcon icon={faCog} size="4x" style={{ width: '2rem' }} color="#F7931A" />
                         </div>
 
-                        <span className="nav-text">Profile</span>
+                        <span className="nav-text">Setting</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/myprofile">My Profile</a></li>
-                            <li><a href="/change-password">Change Password</a></li>
-                            <li><a href="/change-profile-pic">Change Profile Pic</a></li>
-                            <li><a href="/crypto-wallet-change">Crypto Wallet Change</a></li>
-                            <li><a href="/change-transaction-password">Change Transaction Password</a></li>
-                            <li><a href="/support">Support</a></li>
-                            <li><a href="/support-response">Support Response</a></li>
+                            <li><Link to="/user/myprofile">My Profile</Link></li>
+                            <li><Link to="/user/change-password">Change Password</Link></li>
+                            <li><Link to="/user/change-profile-pic">Change Profile Pic</Link></li>
+                            <li><Link to="/user/crypto-wallet-change">Crypto Wallet Change</Link></li>
+                            <li><Link to="/user/change-transaction-password">Change Transaction Password</Link></li>
+                            <li><Link to="/user/support">Support</Link></li>
+                            <li><Link to="/user/support-response">Support Response</Link></li>
                         </ul>
                     </li>
 
                     {/* Wallet */}
-                    <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
+                    <li><a className="has-arrow " href="#" aria-expanded="false">
                         <div className="menu-icon">
                             <FontAwesomeIcon icon={faBitcoinSign} size="4x" style={{ width: '2rem' }} color="#F7931A" />
                         </div>
                         <span className="nav-text">Wallet TopUp</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/top-up-auto">Top Up(Auto)</a></li>
-                            <li><a href="/top-up-auto-history">Top Up(Auto) History</a></li>
-                            <li><a href="/top-up-manual">Top Up(Manual)</a></li>
-                            <li><a href="/top-up-manual-history">Top Up(Manual) History</a></li>
-                            <li><a href="/fund-summary">Fund Summary</a></li>
+                            <li><Link to="/user/top-up-auto">Top Up(Auto)</Link></li>
+                            <li><Link to="/user/top-up-auto-history">Top Up(Auto) History</Link></li>
+                            <li><Link to="/user/top-up-manual">Top Up(Manual)</Link></li>
+                            <li><Link to="/user/top-up-manual-history">Top Up(Manual) History</Link></li>
+                            <li><Link to="/user/fund-summary">Fund Summary</Link></li>
 
                         </ul>
                     </li>
 
-                       {/* Package */}
-                       <li><a href="javascript:void()" className="has-arrow" aria-expanded="false">
+                    {/* Package */}
+                    <li><a href="#" className="has-arrow" aria-expanded="false">
                         <div className="menu-icon">
                             <FontAwesomeIcon icon={faSuitcase} size="3x" style={{ width: '2rem' }} color="#F7931A" />
                         </div>
-                        <span className="nav-text">Package</span>
+                        <span className="nav-text">Bot</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/staking-package">Staking Package</a></li>
-                            <li><a href="/package-history">Package History</a></li>
+                            <li><Link to="/user/staking-package">Bot Subscription</Link></li>
+                            <li><Link to="/user/package-history">Subscription Details</Link></li>
                         </ul>
                     </li>
 
                     {/* Transfer */}
 
-                    <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
+                    {/* <li><a className="has-arrow " href="#" aria-expanded="false">
                         <div className="menu-icon">
                             <FontAwesomeIcon icon={faShare} size="4x" style={{ width: '2rem' }} color="#F7931A" />
                         </div>
                         <span className="nav-text">Transfer</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/p2p-transfer">P2P Transfer</a></li>
-                            <li><a href="/p2p-transfer-history">P2P Transfer History</a></li>
-                            <li><a href="/income-to-fund-transfer">Income to Fund</a></li>
-                            <li><a href="/income-to-fund-transfer-history">Income to Fund History</a></li>
+                            <li><Link to="/user/p2p-transfer">P2P Transfer</Link></li>
+                            <li><Link to="/user/p2p-transfer-history">P2P Transfer History</Link></li>
+                            <li><Link to="/user/income-to-fund-transfer">Income to Fund</Link></li>
+                            <li><Link to="/user/income-to-fund-transfer-history">Income to Fund History</Link></li>
 
                         </ul>
-                    </li>
+                    </li> */}
 
                     {/* Income Reports */}
-                    <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
+                    <li><a className="has-arrow " href="#" aria-expanded="false">
                         <div className="menu-icon">
                             <FontAwesomeIcon icon={faFileAlt} size="4x" style={{ width: '2rem' }} color="#F7931A" />
                         </div>
                         <span className="nav-text">Income Reports</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/income/report/trading-profit">Trading Profit</a></li>
-                            <li><a href="/income/report/trading-profit-income">Trading Profit Income</a></li>
-                            <li><a href="/income/report/direct-income">Direct Income</a></li>
-                            <li><a href="/income/report/level-income">Level Income</a></li>
-                            <li><a href="/income/report/reward-income">Reward Income</a></li>
-                            <li><a href="/income/report/royalty-income">Royalty Income</a></li>
-                            <li><a href="/income/report/club-income">Club Income</a></li>
+                            <li><Link to="/user/income/report/trading-profit">Trading Profit</Link></li>
+                            <li><Link to="/user/income/report/trading-profit-income">Trading Profit Income</Link></li>
+                            <li><Link to="/user/income/report/direct-income">Direct Income</Link></li>
+                            <li><Link to="/user/income/report/level-income">Level Income</Link></li>
+                            <li><Link to="/user/income/report/reward-income">Reward Income</Link></li>
+                            <li><Link to="/user/income/report/royalty-income">Royalty Income</Link></li>
+                            <li><Link to="/user/income/report/club-income">Club Income</Link></li>
 
                         </ul>
                     </li>
 
-                     {/* Club and rewards */}
-                     <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
+                    {/* Club and rewards */}
+                    <li><a className="has-arrow " href="#" aria-expanded="false">
                         <div className="menu-icon">
                             <FontAwesomeIcon icon={faRavelry} size="4x" style={{ width: '2rem' }} color="#F7931A" />
                         </div>
                         <span className="nav-text">Club And Rewards</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/reward-report">Reward Report</a></li>
-                            <li><a href="/club-report">Club Report</a></li>
+                            <li><Link to="/user/reward-report">Reward Report</Link></li>
+                            <li><Link to="/user/club-report">Club Report</Link></li>
                         </ul>
                     </li>
 
 
                     {/* Withdraw */}
-                    <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
+                    <li><a className="has-arrow " href="#" aria-expanded="false">
                         <div className="menu-icon">
                             <FontAwesomeIcon icon={faBitcoinSign} size="3x" style={{ width: '2rem' }} color="#F7931A" />
 
                         </div>
-                        <span className="nav-text">Withdraw</span>
+                        <span className="nav-text">Financial</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/income-withdraw">Income Withdraw</a></li>
-                            <li><a href="/withdraw-history">Withdraw History</a></li>
-                            <li><a href="/account-summary">Account Summary</a></li>
+                            <li><Link to="/user/income-withdraw">Income Financial</Link></li>
+                            <li><Link to="/user/withdraw-history">Financial History</Link></li>
+                            <li><Link to="/user/account-summary">Account Summary</Link></li>
                         </ul>
                     </li>
 
                     {/* Community */}
-                    <li><a className="has-arrow " href="javascript:void()" aria-expanded="false">
+                    <li><a className="has-arrow " href="#" aria-expanded="false">
                         <div className="menu-icon">
                             <FontAwesomeIcon icon={faPeopleGroup} size="3x" style={{ width: '2rem' }} color="#F7931A" />
 
@@ -150,8 +146,8 @@ const Sidebar = () => {
                         <span className="nav-text">Community</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><a href="/community/direct-referral">Direct Referral</a></li>
-                            <li><a href="/community/level-team">Level Team</a></li>
+                            <li><Link to="/user/community/direct-referral">Direct Referral</Link></li>
+                            <li><Link to="/user/community/level-team">Level Team</Link></li>
                         </ul>
                     </li>
                 </ul>

@@ -33,13 +33,14 @@ const Login = () => {
                 }
             }
         ).then((response) => {
+            console.log(response)
             if (response.status === 200) {
                 sessionStorage.setItem('user', JSON.stringify(response.data.user))
                 localStorage.setItem('access_token', response.data.token)
                 toast.success("Login successful!");
-                setTimeout(() => {
+                // setTimeout(() => {
                     navigate('/')
-                }, 1000);
+                // }, 1000);
             }
             setLoading(false)
         }).catch((error) => {

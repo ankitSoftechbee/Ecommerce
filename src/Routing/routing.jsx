@@ -33,65 +33,69 @@ import IncomeToFund from '../components/Transfer/IncomeToFund';
 import IncomeToFundHistory from '../components/Transfer/IncomeToFundHistory';
 import RewardReport from '../components/ClubAndReward/RewardReport';
 import ClubReport from '../components/ClubAndReward/ClubReport';
+import React from 'react';
 
 const Routing = () => {
   return (
     <Router>
       <Routes>
         {/* Public Route */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route exact path="/user/login" element={<Login />} />
+        <Route exact path="/user/signup" element={<Signup />} />
 
         {/* Protected Routes */}
         <Route
-          path="/"
+          path="/user/"
           element={
             <ProtectedRoute>
-              <Layout />
+              <React.Suspense fallback={<>...</>}>
+
+                <Layout />
+              </React.Suspense>
             </ProtectedRoute>
           }
         >
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="myprofile" element={<MyProfile />} />
-          <Route path="change-password" element={<ChangePassword />} />
-          <Route path="change-transaction-password" element={<ChangeTransactionPassword />} />
-          <Route path="support" element={<Support />} />
-          <Route path="crypto-wallet-change" element={<CryptoWalletChange />} />
-          <Route path="support-response" element={<SupportResponse />} />
-          <Route path="change-profile-pic" element={<ChangeProfilePic />} />
-          <Route path='top-up-auto' element={<TopUpAuto />} />
-          <Route path='top-up-auto-history' element={<TopUpAutoHistory />} />
-          <Route path='top-up-manual' element={<TopUpManual />} />
+          <Route exact index element={<Home />} />
+          <Route exact path="about" element={<About />} />
+          <Route exact path="contact" element={<Contact />} />
+          <Route exact path="myprofile" element={<MyProfile />} />
+          <Route exact path="change-password" element={<ChangePassword />} />
+          <Route exact path="change-transaction-password" element={<ChangeTransactionPassword />} />
+          <Route exact path="support" element={<Support />} />
+          <Route exact path="crypto-wallet-change" element={<CryptoWalletChange />} />
+          <Route exact path="support-response" element={<SupportResponse />} />
+          <Route exact path="change-profile-pic" element={<ChangeProfilePic />} />
+          <Route exact path='top-up-auto' element={<TopUpAuto />} />
+          <Route exact path='top-up-auto-history' element={<TopUpAutoHistory />} />
+          <Route exact path='top-up-manual' element={<TopUpManual />} />
 
 
-          <Route path='top-up-manual-history' element={<TopUpManualHistory />} />
-          <Route path='fund-summary' element={<FundSummary />} />
-          <Route path='income-withdraw' element={<IncomeWithdraw />} />
-          <Route path='withdraw-history' element={<WithdrawHistory />} />
+          <Route exact path='top-up-manual-history' element={<TopUpManualHistory />} />
+          <Route exact path='fund-summary' element={<FundSummary />} />
+          <Route exact path='income-withdraw' element={<IncomeWithdraw />} />
+          <Route exact path='withdraw-history' element={<WithdrawHistory />} />
 
-          <Route path='p2p-transfer' element={<P2PTransfer />} />
-          <Route path='p2p-transfer-history' element={<P2PTransferHistory />} />
-          <Route path='income-to-fund-transfer' element={<IncomeToFund />} />
-          <Route path='income-to-fund-transfer-history' element={<IncomeToFundHistory />} />
+          <Route exact path='p2p-transfer' element={<P2PTransfer />} />
+          <Route exact path='p2p-transfer-history' element={<P2PTransferHistory />} />
+          <Route exact path='income-to-fund-transfer' element={<IncomeToFund />} />
+          <Route exact path='income-to-fund-transfer-history' element={<IncomeToFundHistory />} />
 
-          <Route path='income/report/trading-profit' element={<Income />} />
-          <Route path='income/report/trading-profit-income' element={<Income />} />
-          <Route path='income/report/direct-income' element={<Income />} />
-          <Route path='income/report/level-income' element={<Income />} />
-          <Route path='income/report/reward-income' element={<Income />} />
-          <Route path='income/report/royalty-income' element={<Income />} />
-          <Route path='income/report/club-income' element={<Income />} />
+          <Route exact path='income/report/trading-profit' element={<Income />} />
+          <Route exact path='income/report/trading-profit-income' element={<Income />} />
+          <Route exact path='income/report/direct-income' element={<Income />} />
+          <Route exact path='income/report/level-income' element={<Income />} />
+          <Route exact path='income/report/reward-income' element={<Income />} />
+          <Route exact path='income/report/royalty-income' element={<Income />} />
+          <Route exact path='income/report/club-income' element={<Income />} />
 
-          <Route path='reward-report' element={<RewardReport />} />
-          <Route path='club-report' element={<ClubReport />} />
-          
-          <Route path='staking-package' element={<StakingPackage />} />
-          <Route path='package-history' element={<PackageHistory />} />
-          <Route path='community/direct-referral' element={<Direct />} />
-          <Route path='community/level-team' element={<Level />} />
-          <Route path='account-summary' element={<AccountSummary />} />
+          <Route exact path='reward-report' element={<RewardReport />} />
+          <Route exact path='club-report' element={<ClubReport />} />
+
+          <Route exact path='staking-package' element={<StakingPackage />} />
+          <Route exact path='package-history' element={<PackageHistory />} />
+          <Route exact path='community/direct-referral' element={<Direct />} />
+          <Route exact path='community/level-team' element={<Level />} />
+          <Route exact path='account-summary' element={<AccountSummary />} />
 
 
 
@@ -99,6 +103,9 @@ const Routing = () => {
         </Route>
       </Routes>
     </Router>
+
+
+
   );
 };
 

@@ -147,7 +147,7 @@ const TopUpManual = () => {
                             className="font-semibold"
                             style={{ color: fundBalance < 100 ? "red" : "#32de84" }}
                         >
-                            $ {fundBalance}
+                         {fundBalance} USDT
                         </span>
                     </h1>
 
