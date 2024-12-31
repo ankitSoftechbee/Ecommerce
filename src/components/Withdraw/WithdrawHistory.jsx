@@ -51,7 +51,7 @@ const WithdrawHistory = () => {
                 <div className="row page-titles">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item">
-                            <a href="javascript:void(0)">Withdraw / History</a>
+                            <a href="javascript:void(0)">Financial / History</a>
                         </li>
                     </ol>
                 </div>

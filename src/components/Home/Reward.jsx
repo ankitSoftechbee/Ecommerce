@@ -13,7 +13,7 @@ const Reward = (props) => {
                         <h4 class="mb-0 fs-18 font-w700">{item.name}</h4>
                     </div>
                     <div>
-                        <h4 class="mb-0 fs-18 font-w700">$ {value}</h4>
+                        <h4 class="mb-0 fs-18 font-w700">{value} USDT</h4>
 
                     </div>
                 </div>

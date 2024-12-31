@@ -36089,15 +36089,15 @@ a:hover {
 }
 
 #main-wrapper {
-  opacity: 0;
-  transition: all 0.25s ease-in;
+  /* opacity: 1; */
+  /* transition: all 0.25s ease-in; */
   padding: 0;
   position: relative;
 }
 
-#main-wrapper.show {
+/* #main-wrapper.show {
   opacity: 1;
-}
+} */
 
 .animation {
   position: fixed;

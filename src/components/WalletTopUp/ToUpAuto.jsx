@@ -165,7 +165,7 @@ const TopUpAuto = () => {
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Wallet / Top Up</a></li>
                 </ol>
             </div>
-            <h1 className="text-center text-xl m-2">Available Amount : ${totalAmt?.fundBalance ?? "0"}</h1>
+            <h1 className="text-center text-xl m-2">Available Amount : {totalAmt?.fundBalance ?? "0"} USDT</h1>
             <div class="card">
                 <div class="card-body">
                     <div class="basic-form">

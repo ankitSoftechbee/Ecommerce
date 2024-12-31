@@ -109,7 +109,7 @@ const RewardReport = () => {
                                                         <td>{item?.date.split('T')[0] || ''}</td>
                                                         <td>{item?.reward || ''}</td>
                                                         <td>{item?.remark || ''}</td>
-                                                        <td>{`$ ${item?.amount}` ?? ''}</td>
+                                                        <td>{`${item?.amount} USDT` ?? ''}</td>
                                                     </tr>
                                                 ))
                                             ) : (

@@ -117,13 +117,13 @@ const IncomeWithdraw = () => {
         <div className="container-fluid">
             <div class="row page-titles">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Transfer Income Withdraw</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Transfer Income Financial</a></li>
                 </ol>
             </div>
             <div class="card">
                 <div class="card-header">
                     <div className="w-full">
-                        <h1 className="text-white text-xl text-center m-2">Available Amount is : <span className="font-semibold" style={{ color: withdrawBalance < 100 ? 'red' : '#32de84' }}>$ {withdrawBalance}</span></h1>
+                        <h1 className="text-white text-xl text-center m-2">Available Amount is : <span className="font-semibold" style={{ color: withdrawBalance < 100 ? 'red' : '#32de84' }}>{withdrawBalance} USDT</span></h1>
                     </div>
                 </div>
                 <div class="card-body">

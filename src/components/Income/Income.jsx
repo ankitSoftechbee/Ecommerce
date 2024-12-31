@@ -19,31 +19,31 @@ const Income = () => {
         if (location) {
             // Perform actions based on the stored keyword
             switch (location.pathname) {
-                case "/income/report/trading-profit":
+                case "/user/income/report/trading-profit":
                     setKeyword('ROI')
                     setHeading('Trading Profit')
                     break;
-                case "/income/report/trading-profit-income":
+                case "/user/income/report/trading-profit-income":
                     setKeyword('ROILEVEL')
                     setHeading('Trading Profit Income')
                     break;
-                case "/income/report/direct-income":
+                case "/user/income/report/direct-income":
                     setKeyword('DIRECT')
                     setHeading('Direct Income')
                     break;
-                case "/income/report/level-income":
+                case "/user/income/report/level-income":
                     setKeyword('LEVEL')
                     setHeading('Level Income')
                     break;
-                case "/income/report/reward-income":
+                case "/user/income/report/reward-income":
                     setKeyword('REWARD')
                     setHeading('Reward Income')
                     break;
-                case "/income/report/royalty-income":
+                case "/user/income/report/royalty-income":
                     setKeyword('ROYALTY')
                     setHeading('Royalty Income')
                     break;
-                case "/income/report/club-income":
+                case "/user/income/report/club-income":
                     setKeyword('CLUB')
                     setHeading('Club Income')
                     break;
@@ -51,7 +51,7 @@ const Income = () => {
                     break;
             }
         }
-    }, [keyword]);
+    }, [location]);
 
 
     useEffect(() => {
@@ -72,7 +72,6 @@ const Income = () => {
                 })
                 .then((response) => {
                     if (response.status === 200) {
-                        console.log("API Response:", response.data);
                         setData(response.data); // Update state with the response
                     }
                 })

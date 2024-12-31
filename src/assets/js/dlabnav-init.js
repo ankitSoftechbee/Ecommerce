@@ -5,6 +5,7 @@ var dlabSettingsOptions = {};
 
 function getUrlParams(dParam) 
 	{
+		console.log(dParam)
 		var dPageURL = window.location.search.substring(1),
 			dURLVariables = dPageURL.split('&'),
 			dParameterName,
