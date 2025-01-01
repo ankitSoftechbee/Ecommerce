@@ -3,6 +3,7 @@ import Footer from "../../layout/Footer";
 import * as Yup from "yup";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import botImage from "../../assets/images/package.jpg";
 import { packageAPIConfig } from "../../api/apiConfig";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -115,7 +116,7 @@ const StakingPackage = () => {
                                     </button>
                                 </form>
                                 <img
-                                    src="src/assets/images/package.jpg"
+                                    src={botImage}
                                     className="flex-[50%]"
                                     style={{ width: '100px', height: '200px' }}
                                 />

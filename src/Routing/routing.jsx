@@ -8,7 +8,6 @@ import Layout from '../layout/layout';
 import Signup from '../components/Signup';
 import MyProfile from '../components/Profile/MyProfile';
 import ChangePassword from '../components/Profile/ChangePassword';
-import ChangeEmail from '../components/Profile/ChangeTransactionPassword';
 import Support from '../components/Profile/Support';
 import CryptoWalletChange from '../components/Profile/CryptoWalletChange';
 import ChangeProfilePic from '../components/Profile/ChangeProfilePic';
@@ -41,7 +40,7 @@ const Routing = () => {
       <Routes>
         {/* Public Route */}
         <Route exact path="/user/login" element={<Login />} />
-        <Route exact path="/user/signup" element={<Signup />} />
+        <Route exact path="/user/signup/:sponsorID/:positionID/:name/*" element={<Signup />} />
 
         {/* Protected Routes */}
         <Route

@@ -13,7 +13,7 @@ const Header = () => {
     const handleLogout = () => {
         localStorage.removeItem('access_token')
         sessionStorage.removeItem('user')
-        navigate('/login')
+        navigate('/user/login')
     }
 
     return <>
@@ -195,7 +195,7 @@ const Header = () => {
                                     </div>
                                 </li>
                             </ul> */}
-                            <a className="nav-link user-profile" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" style={{ display: 'block' }}>
+                            <a className="nav-link user-profile" role="button" data-bs-toggle="dropdown" style={{ display: 'block' }}>
                                 <div className="header-info2 d-flex align-items-center">
                                     <img src={data?.profilePic || 'src/assets/images/dummypicture.webp'} alt="" />
                                     <div className="d-flex align-items-center sidebar-info">
