@@ -3,7 +3,7 @@ import { logInAPIConfig, signUpAPIConfig } from "../api/apiConfig"
 import { useFormik } from "formik"
 import * as Yup from "yup";
 import axios from "axios";
-import bgImages from "../assets/images/loginBot.avif"
+import bgImages from "../assets/images/loginBot.jpg"
 import logoImage from "../assets/images/logo.png"
 import { useEffect, useState, useCallback } from "react";
 import { toast, ToastContainer } from "react-toastify";
@@ -163,7 +163,7 @@ const Signup = () => {
         <Grid className="left-image" item xs={12} sm={12} md={6} lg={6} xl={6} style={{ backgroundImage: `url(${bgImages})`, backgroundPosition: "center", backgroundSize: "cover", minHeight: '100vh' }}>
         </Grid>
         <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-        <div className="min-h-[100vh]" style={{ background:'transparent' }}>
+             <div className="min-h-[100vh]" style={{  background: "linear-gradient(to right, #2193b0, #6dd5ed)" }}>
                 <div className="card-body ">
                     <div className="row m-0 justify-content-center">
                         <div className="col-xl-12 col-md-12 col-lg-12 flex items-center">
