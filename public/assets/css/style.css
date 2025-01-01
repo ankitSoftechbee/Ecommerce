@@ -15207,7 +15207,7 @@ svg.pulse-svg .third-circle {
   top: 5.5rem;
   padding-top: 0;
   z-index: 6;
-  transition: all .2s ease;
+  /* transition: all .2s ease; */
   box-shadow: 0rem 0.9375rem 1.875rem 0rem rgba(0, 0, 0, 0.02);
   background: var(--sidebar-bg);
 }
@@ -15389,7 +15389,7 @@ svg.pulse-svg .third-circle {
 }
 
 .dlabnav .metismenu ul {
-  transition: all .2s ease-in-out;
+  /* transition: all .2s ease-in-out; */
   position: relative;
   z-index: 1;
   padding: 0.5rem 0;
@@ -15401,9 +15401,9 @@ svg.pulse-svg .third-circle {
   position: relative;
   font-size: 0.9375rem;
   padding-left: 4.375rem;
-  -webkit-transition: all 0.5s;
+  /* -webkit-transition: all 0.5s;
   -ms-transition: all 0.5s;
-  transition: all 0.5s;
+  transition: all 0.5s; */
 }
 
 @media only screen and (max-width: 84.375rem) {
@@ -15428,9 +15428,9 @@ svg.pulse-svg .third-circle {
   left: 2.5rem;
   top: 50%;
   transform: translateY(-50%);
-  -webkit-transition: all 0.5s;
+  /* -webkit-transition: all 0.5s;
   -ms-transition: all 0.5s;
-  transition: all 0.5s;
+  transition: all 0.5s; */
 }
 
 [data-sidebar-style="full"] .dlabnav .metismenu ul a:hover {
@@ -18015,9 +18015,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-sidebar-style="overlay"] .dlabnav {
   left: -100%;
-  -webkit-transition: all 0.5s;
+  /* -webkit-transition: all 0.5s;
   -ms-transition: all 0.5s;
-  transition: all 0.5s;
+  transition: all 0.5s; */
   box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
 }
 

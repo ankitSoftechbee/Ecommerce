@@ -43,8 +43,10 @@ function Layout() {
       <NavHeader />
       <Header />
       <Sidebar />
-      <Outlet /> {/* Content will be injected here based on the current route */}
-      
+      <main>
+        <Outlet /> {/* Content will be injected here based on the current route */}
+      </main>
+
     </div>
   );
 }

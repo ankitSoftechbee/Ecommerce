@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Footer from '../../layout/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShare } from '@fortawesome/free-solid-svg-icons';
+import { faCopy, faShare } from '@fortawesome/free-solid-svg-icons';
 import Wallet from './Wallet';
 import Bonus from './Bonus';
 import MyTeam from './MyTeam';
@@ -11,8 +11,10 @@ import { toast, ToastContainer } from 'react-toastify';
 import Reward from './Reward';
 import Withdraw from './Withdraw';
 import Loader from "../../lib/Loader"
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+    const navigate = useNavigate()
     const [data, setData] = useState('')
     const [loading, setLoading] = useState(false)
     const [news, setNews] = useState('')
@@ -64,6 +66,22 @@ const Home = () => {
         return <Loader />
     }
 
+    const handleReferral = (position) => {
+        let link
+        if (position === 'left') {
+            const user = JSON.parse(sessionStorage.getItem('user'))
+            link = `https://gmfxbotworld.com/user/signup/${user.userName}/left/${user.name}`
+
+        } else if (position === 'right') {
+            link = `https://gmfxbotworld.com/user/signup/${user.userName}/right/${user.name}`
+        }
+        navigator.clipboard
+            .writeText(link)
+            .then(() => toast.success("Referral link copied!"))
+            .catch(() => toast.error("Failed to copy referral link."));
+    };
+
+
     return <>
         <div className="content-body">
 
@@ -77,8 +95,19 @@ const Home = () => {
                 <div className='row'>
                     <div className='col-xl-7'>
                         <div>
-                            <button type="button" className="btn btn-light">
-                                Referral Link <FontAwesomeIcon icon={faShare} className="ms-2" />
+                            <button
+                                type="button"
+                                className="btn btn-light"
+                                onClick={() => handleReferral('left')}
+                            >
+                                Left Referral Link <FontAwesomeIcon icon={faCopy} />
+                            </button>
+                            <button
+                                type="button"
+                                className="ml-2 btn btn-primary"
+                                onClick={() => handleReferral('right')}
+                            >
+                                Right Referral Link <FontAwesomeIcon icon={faCopy} />
                             </button>
                         </div>
                         <Wallet data={data} />

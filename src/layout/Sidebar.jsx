@@ -24,7 +24,7 @@ const Sidebar = () => {
                     </li>
 
                     {/* MY profile */}
-                    <li><a className="has-arrow " href="#" aria-expanded="false">
+                    <li><a className="has-arrow" aria-expanded="false">
                     <div className="menu-icon">
                             <FontAwesomeIcon icon={faCog} size="4x" style={{ width: '2rem' }} color="#F7931A" />
                         </div>
@@ -32,7 +32,7 @@ const Sidebar = () => {
                         <span className="nav-text">Setting</span>
                     </a>
                         <ul aria-expanded="false">
-                            <li><Link to="/user/myprofile">My Profile</Link></li>
+                            <li><Link reloadDocument to="/user/myprofile">My Profile</Link></li>
                             <li><Link to="/user/change-password">Change Password</Link></li>
                             <li><Link to="/user/change-profile-pic">Change Profile Pic</Link></li>
                             <li><Link to="/user/crypto-wallet-change">Crypto Wallet Change</Link></li>

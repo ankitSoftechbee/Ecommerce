@@ -5,7 +5,7 @@ const NavHeader = () => {
     return <>
         <div className="nav-header">
             <a href="index.html" className="brand-logo">
-                <div className="logo">
+                <div className="logo md:w-36 md:mt-4">
                     <img src={logoImage} />
                 </div>
             </a>
